@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume 1 • Issue 1 (April 2026) | Table of Contents | SRIJAN Journal</title>
+    <meta name="description" content="Inaugural Volume 1 Issue 1 (April 2026) of SRIJAN: Global Review of Arts, Science & Humanities. Featuring research on Taare Zameen Par, Romanticism in Kylas Chunder Dutt, Disney's Moana, Robinson Crusoe, and Jane Austen.">
+    <meta name="keywords" content="SRIJAN, Volume 1 Issue 1, Open Access, Table of Contents, Peer-Reviewed, Articles, Research, Humanities, Science, Literature, ISSN">
+    <meta name="author" content="SRIJANTIRTHA">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Web Components -->
+    <script src="../components.js"></script>
+
+    <style>
+        /* Specific enhancements for the Volume Release TOC Page */
+        .issue-hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #1a2a3a 100%);
+            color: var(--text-on-dark);
+            padding: 4.5rem 0 5rem;
+            position: relative;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+        .issue-breadcrumb {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .issue-breadcrumb a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .issue-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .issue-release-header {
+            display: flex;
+            gap: 3.5rem;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .issue-release-details {
+            max-width: 750px;
+        }
+        .issue-release-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        .issue-release-title {
+            font-size: 2.85rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--bg-white);
+        }
+        .issue-release-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        .issue-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .meta-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .meta-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .meta-stat-value {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .issue-bound-card {
+            background: var(--bg-white);
+            color: var(--primary-navy);
+            padding: 1.75rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            width: 310px;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+        }
+        .issue-cover-thumb {
+            width: 100%;
+            height: auto;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--bg-subtle-gray);
+        }
+        .issue-bound-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .issue-bound-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .toc-container {
+            padding: 4rem 0 6rem;
+            background-color: var(--bg-light);
+        }
+        .toc-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .toc-count-label {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .toc-filter {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .toc-filter select {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-white);
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .toc-search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.65rem 1.25rem;
+            min-width: 280px;
+            flex-grow: 1;
+            max-width: 420px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
+        }
+        .toc-search-box:focus-within {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        .toc-search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 0.95rem;
+            padding-left: 0.65rem;
+            color: var(--primary-navy);
+            background: transparent;
+        }
+        .toc-search-clear {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.2rem;
+            display: flex;
+            align-items: center;
+        }
+        .toc-search-clear:hover {
+            color: var(--primary-navy);
+        }
+        .toc-articles {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .toc-article-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        .toc-article-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .article-seq-num {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .article-dates-box {
+            background: var(--bg-subtle-gray);
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--secondary-slate);
+        }
+        @media (max-width: 992px) {
+            .issue-release-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .issue-bound-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            .toc-article-card {
+                padding: 1.75rem;
+            }
+            .article-seq-num {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="academic-theme">
+
+    <srijan-header base-path="../" active-page="current-issue"></srijan-header>
+
+    <!-- Main Content Container -->
+    <main role="main">
+
+        <!-- ISSUE RELEASE HERO BANNER -->
+        <section class="issue-hero">
+            <div class="container">
+                <div class="issue-breadcrumb">
+                    <a href="../index.html#home"><i data-lucide="home" style="width:14px; height:14px;"></i> Home</a>
+                    <i data-lucide="chevron-right" style="width:14px; height:14px;"></i>
+                    <a href="../index.html#archives">Archives</a>
+                    <i data-lucide="chevron-right" style="width:14px; height:14px;"></i>
+                    <span>Volume 1 • Issue 1 (April 2026)</span>
+                </div>
+
+                <div class="issue-release-header">
+                    <div class="issue-release-details">
+                        <div class="issue-release-badge">
+                            <i data-lucide="award"></i> Inaugural Premier Edition
+                        </div>
+                        <h1 class="issue-release-title">Volume 1 • Issue 1</h1>
+                        <p class="issue-release-subtitle">SRIJAN: Global Review of Arts, Science & Humanities — April 2026 Edition. Presenting multidisciplinary peer-reviewed research advancing critical discourse in modern society, literature, posthumanism, and cultural studies.</p>
+
+                        <div class="issue-meta-grid">
+                            <div class="meta-stat">
+                                <span class="meta-stat-label">Publication Date</span>
+                                <span class="meta-stat-value"><i data-lucide="calendar"></i> 05 April 2026</span>
+                            </div>
+                            <div class="meta-stat">
+                                <span class="meta-stat-label">Total Articles</span>
+                                <span class="meta-stat-value"><i data-lucide="file-text"></i> 5 Peer-Reviewed Papers</span>
+                            </div>
+                            <div class="meta-stat">
+                                <span class="meta-stat-label">Open Access</span>
+                                <span class="meta-stat-value"><i data-lucide="unlock"></i> 100% Diamond OA</span>
+                            </div>
+                            <div class="meta-stat">
+                                <span class="meta-stat-label">License</span>
+                                <span class="meta-stat-value"><i data-lucide="check-circle"></i> CC BY 4.0 International</span>
+                            </div>
+                        </div>
+
+                        <div class="issue-hero-buttons" style="display:flex; gap:1rem; flex-wrap:wrap;">
+                            <a href="#table-of-contents" class="btn btn-outline" style="border-color:var(--accent-gold); color:var(--accent-gold);">
+                                <i data-lucide="list"></i> Browse Table of Contents
+                            </a>
+                            <button class="btn btn-ghost-dark citation-btn" data-citation="SRIJAN: Global Review of Arts, Science & Humanities. Volume 1, Issue 1 (2026). Published by SRIJANTIRTHA.">
+                                <i data-lucide="share-2"></i> Share Issue Record
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="issue-bound-card">
+                        <img src="https://srijantirtha.in/wp-content/uploads/2025/11/Volume-1-Issue-1-Bound-Document-1-724x1024.png" alt="Volume 1 Issue 1 Bound Cover" class="issue-cover-thumb" onerror="this.src='../assets/journal_cover.png'">
+                        <h4>Official Bound Edition</h4>
+                        <p>Complete unedited compilation containing all 5 articles formatted with official page numbering.</p>
+                        <a href="https://srijantirtha.in/wp-content/uploads/2025/11/Volume-1-Issue-1-Bound-Document-1-724x1024.png" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; justify-content:center;">
+                            <i data-lucide="download"></i> Download Full Bound Issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLE OF CONTENTS SECTION -->
+        <section id="table-of-contents" class="toc-container">
+            <div class="container">
+                <div class="toc-header-bar">
+                    <div class="toc-count-label" id="toc-count-display">
+                        <i data-lucide="book-open"></i> Table of Contents (5 Articles)
+                    </div>
+                    <div class="toc-search-box">
+                        <i data-lucide="search" style="color:var(--text-muted); width:18px; height:18px;"></i>
+                        <input type="text" id="toc-search-input" placeholder="Search by title, author, or keyword..." aria-label="Search articles in this issue">
+                        <button id="toc-search-clear" class="toc-search-clear" aria-label="Clear search" hidden><i data-lucide="x" style="width:18px; height:18px;"></i></button>
+                    </div>
+                    <div class="toc-filter">
+                        <label for="toc-section-select" class="sr-only">Filter by section</label>
+                        <select id="toc-section-select">
+                            <option value="all">All Sections (5)</option>
+                            <option value="research">Research Articles (5)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="toc-articles">
+
+                    <!-- ARTICLE 1 -->
+                    <article id="article1" class="toc-article-card">
+                        <span class="article-seq-num">01</span>
+                        <div class="article-type">Research Article</div>
+                        <h3 class="article-title">Marks over scars: Taare Zameen Par as a modern social tragedy</h3>
+                        <div class="article-authors">
+                            <span>Ankita Das</span><sup>1</sup>
+                        </div>
+                        <div class="article-affiliations">
+                            <small><sup>1</sup> Department of English, Dr. B.R. Ambedkar College, Betai, Nadia, West Bengal, India. Email: <a href="mailto:ankitadas741163@gmail.com" class="text-muted">ankitadas741163@gmail.com</a></small>
+                        </div>
+                        <div class="article-dates-box">
+                            <span><strong>Received:</strong> 31 December 2025</span>
+                            <span><strong>Accepted:</strong> 12 March 2026</span>
+                            <span><strong>Published:</strong> 05 April 2026</span>
+                        </div>
+                        <div class="article-identifiers" style="margin-bottom:1.5rem;">
+                            <span class="doi-link"><i data-lucide="book"></i> Journal: SRIJAN: Global Review of Arts, Science & Humanities</span>
+                            <span class="page-range"><i data-lucide="file"></i> Vol. 1, No. 1, pp. 1–6</span>
+                            <span class="year-badge"><i data-lucide="calendar"></i> Year: 2026</span>
+                        </div>
+                        <div class="article-abstract-accordion">
+                            <button class="abstract-toggle" aria-expanded="false">
+                                <span>View Full Abstract & Keywords</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="abstract-content">
+                                <p><strong>Abstract:</strong> The film <em>Taare Zameen Par</em> (2007), directed by Aamir Khan, presents a powerful critique of the modern education system and the emotional suffering experienced by children who fail to conform to rigid academic expectations. This paper interprets the film as an example of modern social tragedy. Unlike classical tragedies that depict the downfall of kings or heroic figures, the tragedy in this narrative emerges from institutional pressure, parental aspiration, and the inability of society to recognize individual creativity. The protagonist Ishaan Awasthi, a child suffering from dyslexia, becomes the central figure through whom the film explores themes of alienation, misunderstanding, and psychological suffering. By applying the theoretical frameworks of Aristotelian tragedy, Raymond Williams’ concept of modern tragedy, and Arthur Miller’s theory of the tragic common man, the study demonstrates how the suffering of an ordinary child can represent a larger social crisis. The analysis also draws on Marxist criticism and Carl Rogers’ humanistic psychology to explain the institutional and emotional dimensions of the tragedy. Ultimately, Taare Zameen Par reveals how an education system obsessed with marks can suppress creativity and individuality, transforming childhood into a site of psychological struggle. The film therefore functions as both a social critique and a call for empathetic and inclusive education.</p>
+                                <p class="keywords"><strong>Keywords:</strong> Social tragedy, education system, dyslexia, modern tragedy, Taare Zameen Par</p>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="btn btn-sm btn-ghost citation-btn" data-citation="Das, A. (2026). Marks over scars: Taare Zameen Par as a modern social tragedy. SRIJAN: Global Review of Arts, Science & Humanities, 1(1), 1-6."><i data-lucide="quote"></i> Copy APA Citation</button>
+                            <a href="https://srijantirtha.in/wp-content/uploads/2026/04/Ankita-Das_Marks-over-Scars-Taare-Zameen-Par_SRIJAN_Vol1.Issue1_2026.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary"><i data-lucide="download"></i> Download Full Paper (PDF)</a>
+                        </div>
+                    </article>
+
+                    <!-- ARTICLE 2 -->
+                    <article id="article2" class="toc-article-card">
+                        <span class="article-seq-num">02</span>
+                        <div class="article-type">Research Article</div>
+                        <h3 class="article-title">Romanticism in Kylas Chunder Dutt’s A Journal of Forty‑Eight Hours of the Year 1945 (1835)</h3>
+                        <div class="article-authors">
+                            <span>Ishani Nath</span><sup>1</sup>
+                        </div>
+                        <div class="article-affiliations">
+                            <small><sup>1</sup> Department of English, Kanchrapara College, University of Kalyani, Nadia, West Bengal, India. Email: <a href="mailto:ishaninath457@gmail.com" class="text-muted">ishaninath457@gmail.com</a></small>
+                        </div>
+                        <div class="article-dates-box">
+                            <span><strong>Received:</strong> 01 January 2026</span>
+                            <span><strong>Accepted:</strong> 12 March 2026</span>
+                            <span><strong>Published:</strong> 05 April 2026</span>
+                        </div>
+                        <div class="article-identifiers" style="margin-bottom:1.5rem;">
+                            <span class="doi-link"><i data-lucide="book"></i> Journal: SRIJAN: Global Review of Arts, Science & Humanities</span>
+                            <span class="page-range"><i data-lucide="file"></i> Vol. 1, No. 1, pp. 7–13</span>
+                            <span class="year-badge"><i data-lucide="calendar"></i> Year: 2026</span>
+                        </div>
+                        <div class="article-abstract-accordion">
+                            <button class="abstract-toggle" aria-expanded="false">
+                                <span>View Full Abstract & Keywords</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="abstract-content">
+                                <p><strong>Abstract:</strong> Kylas Chunder Dutt’s <em>A Journal of Forty‑Eight Hours of the Year 1945</em> is a remarkable early work of Indian English fiction that combines political imagination with literary experimentation. The narrative is generally interpreted as a pioneering nationalist text that anticipates later anti‑colonial writing in India. However, beyond its overt political themes, the text also reveals subtle Romantic elements that enrich its narrative texture. This paper explores the presence of Romanticism in Dutt’s narrative, focusing on the role of imagination, emotional intensity, and the aesthetic representation of nature. Through close textual reading, the study demonstrates how Romantic imagery and sentiment operate alongside themes of colonial resistance and national identity. The paper argues that the Romantic dimension of the narrative deepens the emotional resonance of the revolutionary storyline and provides an imaginative framework for articulating nationalist aspiration. By examining these Romantic elements, the research attempts to offer a new perspective on Dutt’s narrative and situates it within both Romantic literary tradition and the early history of Indian English literature.</p>
+                                <p class="keywords"><strong>Keywords:</strong> Romanticism, nationalism, colonialism, Indian English literature, resistance, imagination, nature</p>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="btn btn-sm btn-ghost citation-btn" data-citation="Nath, I. (2026). Romanticism in Kylas Chunder Dutt’s A Journal of Forty-Eight Hours of the Year 1945 (1835). SRIJAN: Global Review of Arts, Science & Humanities, 1(1), 7-13."><i data-lucide="quote"></i> Copy APA Citation</button>
+                            <a href="https://srijantirtha.in/wp-content/uploads/2026/04/Ishani-Nath_Romanticism-in-Kylas-Chunder-Dutts-A-Journal-of-Forty‑Eight-Hours-of-the-Year-1945-1835_SRIJAN_Vol1.Issue1_.2026.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary"><i data-lucide="download"></i> Download Full Paper (PDF)</a>
+                        </div>
+                    </article>
+
+                    <!-- ARTICLE 3 -->
+                    <article id="article3" class="toc-article-card">
+                        <span class="article-seq-num">03</span>
+                        <div class="article-type">Research Article</div>
+                        <h3 class="article-title">Beyond the Horizon: The Ocean as a Posthuman Agent in Disney’s Moana (2016)</h3>
+                        <div class="article-authors">
+                            <span>Nikita Mondal</span><sup>1</sup>
+                        </div>
+                        <div class="article-affiliations">
+                            <small><sup>1</sup> Department of English, Sister Nivedita University, Kolkata, India. Email: <a href="mailto:mondalnikita42@gmail.com" class="text-muted">mondalnikita42@gmail.com</a></small>
+                        </div>
+                        <div class="article-dates-box">
+                            <span><strong>Received:</strong> 08 January 2026</span>
+                            <span><strong>Accepted:</strong> 12 March 2026</span>
+                            <span><strong>Published:</strong> 05 April 2026</span>
+                        </div>
+                        <div class="article-identifiers" style="margin-bottom:1.5rem;">
+                            <span class="doi-link"><i data-lucide="book"></i> Journal: SRIJAN: Global Review of Arts, Science & Humanities</span>
+                            <span class="page-range"><i data-lucide="file"></i> Vol. 1, No. 1, pp. 14–20</span>
+                            <span class="year-badge"><i data-lucide="calendar"></i> Year: 2026</span>
+                        </div>
+                        <div class="article-abstract-accordion">
+                            <button class="abstract-toggle" aria-expanded="false">
+                                <span>View Full Abstract & Keywords</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="abstract-content">
+                                <p><strong>Abstract:</strong> Disney’s Moana (2016) presents the ocean not merely as a natural background but as a dynamic and responsive presence that participates actively in the narrative. The film portrays the ocean as a living and interactive entity that chooses Moana to restore the heart of Te Fiti and save the island of Motunui. This paper examines how the film reimagines the ocean as a posthuman agent, challenging traditional anthropocentric assumptions about the relationship between humans and nature. Drawing on posthuman ecocriticism and the theoretical insights of scholars such as Serpil Oppermann, Rosi Braidotti, and Stacy Alaimo, the study analyses the ocean’s actions as forms of agency that guide, protect, and communicate with human characters. Through close analysis of key scenes, the paper demonstrates how Moana visualizes the ocean as a co‑creator of narrative meaning rather than a passive environment. By portraying the ocean as an intelligent and ethically responsive presence, the film blurs the boundaries between human and nonhuman actors and proposes a relational ecological vision that challenges anthropocentric worldviews. The study ultimately argues that Moana contributes to contemporary discussions in posthumanism and environmental humanities by reimagining the ocean as an active participant in shaping human destiny and ecological balance.</p>
+                                <p class="keywords"><strong>Keywords:</strong> Posthumanism; Ocean; Anthropocene; Ecocriticism; Blue Humanities</p>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="btn btn-sm btn-ghost citation-btn" data-citation="Mondal, N. (2026). Beyond the horizon: The ocean as a posthuman agent in Disney’s Moana (2016). SRIJAN: Global Review of Arts, Science & Humanities, 1(1), 14-20."><i data-lucide="quote"></i> Copy APA Citation</button>
+                            <a href="https://srijantirtha.in/wp-content/uploads/2026/04/Nikita-Mondal_Beyond-the-Horizon-Ocean-as-a-Posthuman-Entity-in-Moana-2016_SRIJAN_Vol1.Issue1_.2026.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary"><i data-lucide="download"></i> Download Full Paper (PDF)</a>
+                        </div>
+                    </article>
+
+                    <!-- ARTICLE 4 -->
+                    <article id="article4" class="toc-article-card">
+                        <span class="article-seq-num">04</span>
+                        <div class="article-type">Research Article</div>
+                        <h3 class="article-title">The Impact of Fever in English Literature: A Critical Study of Robinson Crusoe by Daniel Defoe and Things Fall Apart by Chinua Achebe</h3>
+                        <div class="article-authors">
+                            <span>Samima Aktar</span><sup>1</sup>
+                        </div>
+                        <div class="article-affiliations">
+                            <small><sup>1</sup> Department of English, Government General Degree College, Tehatta, Nadia, West Bengal, India. Email: <a href="mailto:aktarsamima955@gmail.com" class="text-muted">aktarsamima955@gmail.com</a></small>
+                        </div>
+                        <div class="article-dates-box">
+                            <span><strong>Received:</strong> 02 January 2026</span>
+                            <span><strong>Accepted:</strong> 12 March 2026</span>
+                            <span><strong>Published:</strong> 05 April 2026</span>
+                        </div>
+                        <div class="article-identifiers" style="margin-bottom:1.5rem;">
+                            <span class="doi-link"><i data-lucide="book"></i> Journal: SRIJAN: Global Review of Arts, Science & Humanities</span>
+                            <span class="page-range"><i data-lucide="file"></i> Vol. 1, No. 1, pp. 21–27</span>
+                            <span class="year-badge"><i data-lucide="calendar"></i> Year: 2026</span>
+                        </div>
+                        <div class="article-abstract-accordion">
+                            <button class="abstract-toggle" aria-expanded="false">
+                                <span>View Full Abstract & Keywords</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="abstract-content">
+                                <p><strong>Abstract:</strong> Fever frequently appears in literature not merely as a medical condition but as a symbolic device representing psychological crisis, spiritual transformation, and social instability. This paper examines the literary significance of fever in two influential novels: Daniel Defoe’s Robinson Crusoe (1719) and Chinua Achebe’s Things Fall Apart (1958). In Robinson Crusoe, fever functions as a decisive turning point that leads the protagonist toward repentance and religious awakening. In contrast, fever in Things Fall Apart operates within a communal cultural framework associated with Igbo cosmology and traditional spiritual beliefs. Through comparative textual analysis, the study demonstrates that fever functions both as a narrative catalyst and as a metaphor for wider historical tensions. By linking bodily suffering with moral, cultural, and spiritual transformation, fever reveals how literary narratives reflect the fragile relationship between the human body and the socio‑cultural world in which it exists.</p>
+                                <p class="keywords"><strong>Keywords:</strong> Fever, illness symbolism, colonialism, postcolonialism, repentance, transformation, literature and medicine</p>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="btn btn-sm btn-ghost citation-btn" data-citation="Aktar, S. (2026). The impact of fever in English literature: A critical study of Robinson Crusoe and Things Fall Apart. SRIJAN: Global Review of Arts, Science & Humanities, 1(1), 21-27."><i data-lucide="quote"></i> Copy APA Citation</button>
+                            <a href="https://srijantirtha.in/wp-content/uploads/2026/04/Samima-Aktar_The-Impact-Of-The-Fever-In-English-literature-A-Critical-Study-Of-Robinson-Crusoe-By-Daniel-Defoe-And-Things-Fall-Apart-By-Chinua-Achebe_SRIJAN_Vol1.Issue1_.2026.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary"><i data-lucide="download"></i> Download Full Paper (PDF)</a>
+                        </div>
+                    </article>
+
+                    <!-- ARTICLE 5 -->
+                    <article id="article5" class="toc-article-card">
+                        <span class="article-seq-num">05</span>
+                        <div class="article-type">Research Article</div>
+                        <h3 class="article-title">Sisterhood as a Survival System in a Patriarchal Society in Sense and Sensibility</h3>
+                        <div class="article-authors">
+                            <span>Indira Naru</span><sup>1</sup>
+                        </div>
+                        <div class="article-affiliations">
+                            <small><sup>1</sup> Department of English, Rishi Bankim Chandra College (PG), Naihati, West Bengal, India. Email: <a href="mailto:innaru5656@gmail.com" class="text-muted">innaru5656@gmail.com</a></small>
+                        </div>
+                        <div class="article-dates-box">
+                            <span><strong>Received:</strong> 15 January 2026</span>
+                            <span><strong>Accepted:</strong> 12 March 2026</span>
+                            <span><strong>Published:</strong> 05 April 2026</span>
+                        </div>
+                        <div class="article-identifiers" style="margin-bottom:1.5rem;">
+                            <span class="doi-link"><i data-lucide="book"></i> Journal: SRIJAN: Global Review of Arts, Science & Humanities</span>
+                            <span class="page-range"><i data-lucide="file"></i> Vol. 1, No. 1, pp. 28–35</span>
+                            <span class="year-badge"><i data-lucide="calendar"></i> Year: 2026</span>
+                        </div>
+                        <div class="article-abstract-accordion">
+                            <button class="abstract-toggle" aria-expanded="false">
+                                <span>View Full Abstract & Keywords</span>
+                                <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="abstract-content">
+                                <p><strong>Abstract:</strong> Women’s lives in the late eighteenth and early nineteenth centuries were shaped by legal, social and economic systems that gave power and property to men. In such circumstances emotional security and economic survival often depended on marriage or the support of male relatives. Jane Austen’s Sense and Sensibility presents the relationship between Elinor and Marianne Dashwood as something deeper than a simple family bond. Their connection functions as a practical system of survival within a patriarchal society where women possess limited financial independence and little legal authority. This paper examines how the sisterly relationship between Elinor and Marianne helps them confront emotional vulnerability, social judgement and economic insecurity. Using feminist literary criticism and close textual reading, the analysis demonstrates that sisterhood in the novel operates through emotional care, moral guidance and shared economic adjustment. The study also compares this relationship with the bond between Jane and Elizabeth Bennet in Pride and Prejudice to show that Austen repeatedly presents female solidarity as a stabilizing force within patriarchal structures. The findings suggest that sisterhood should be understood not merely as affection but as a structured response to patriarchal limitations. Austen’s portrayal of female unity therefore becomes a subtle yet powerful commentary on women’s strategies for endurance and dignity within restrictive social systems.</p>
+                                <p class="keywords"><strong>Keywords:</strong> sisterhood, patriarchy, survival, Jane Austen, emotional support, economic vulnerability</p>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <button class="btn btn-sm btn-ghost citation-btn" data-citation="Naru, I. (2026). Sisterhood as a survival system in a patriarchal society in Sense and Sensibility. SRIJAN: Global Review of Arts, Science & Humanities, 1(1), 28-35."><i data-lucide="quote"></i> Copy APA Citation</button>
+                            <a href="https://srijantirtha.in/wp-content/uploads/2026/04/Indira-Naru_Sisterhood-as-a-Survival-System-in-a-Patriarchal-Society-in-Sense-and-Sensibility_SRIJAN_Vol1.Issue1_.2026.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary"><i data-lucide="download"></i> Download Full Paper (PDF)</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBMIT PAPER BANNER -->
+        <section class="section cta-section" style="background-color: var(--primary-navy); color: white; padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.25rem; font-family: var(--font-heading); margin-bottom: 1rem;">Ready to Publish Your Next Breakthrough?</h2>
+                <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); max-width: 700px; margin: 0 auto 2rem;">SRIJAN welcomes rigorous empirical studies, theoretical reviews, and critical humanistic essays. Enjoy 100% Diamond Open Access with zero publication fees.</p>
+                <button class="btn btn-lg" id="scope-submit-btn" style="background-color: var(--accent-gold); color: var(--primary-navy); font-weight: 700; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="upload-cloud"></i> Submit Your Manuscript Online
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <srijan-footer base-path="../"></srijan-footer>
+    <srijan-modals></srijan-modals>
+
+
+    <!-- Database & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Live search filtering logic
+            const searchInput = document.getElementById('toc-search-input');
+            const clearBtn = document.getElementById('toc-search-clear');
+            const articleCards = document.querySelectorAll('.toc-article-card');
+            const countDisplay = document.getElementById('toc-count-display');
+
+            function filterArticles() {
+                const query = searchInput?.value.toLowerCase().trim() || '';
+                if (clearBtn) {
+                    if (query.length > 0) clearBtn.removeAttribute('hidden');
+                    else clearBtn.setAttribute('hidden', 'true');
+                }
+
+                let visibleCount = 0;
+                articleCards.forEach(card => {
+                    const title = card.querySelector('.article-title')?.innerText.toLowerCase() || '';
+                    const authors = card.querySelector('.article-authors')?.innerText.toLowerCase() || '';
+                    const abstract = card.querySelector('.abstract-content')?.innerText.toLowerCase() || '';
+                    const keywords = card.querySelector('.keywords')?.innerText.toLowerCase() || '';
+
+                    if (title.includes(query) || authors.includes(query) || abstract.includes(query) || keywords.includes(query)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (countDisplay) {
+                    countDisplay.innerHTML = `<i data-lucide="book-open"></i> Table of Contents (${visibleCount} of 5 Articles)`;
+                    if (typeof lucide !== 'undefined') lucide.createIcons({ root: countDisplay });
+                }
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', filterArticles);
+            }
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => {
+                    searchInput.value = '';
+                    filterArticles();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

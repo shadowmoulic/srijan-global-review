@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Admin Portal | SRIJAN Journal</title>
+    <meta name="description" content="Secure Executive Board Administration Portal for SRIJAN Journal.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="admin.css">
+
+    <!-- Web Components -->
+    <script src="../components.js"></script>
+</head>
+
+<body class="admin-body">
+    <!-- Gatephrase Security Overlay -->
+    <div id="gatephrase-modal" class="modal gatephrase-modal" role="dialog" aria-modal="true">
+        <div class="modal-overlay" style="background-color: #0B2545; backdrop-filter: blur(12px);"></div>
+        <div class="modal-container" style="max-width: 480px; text-align: center; padding: 3rem 2.5rem; background: #fff; border-radius: var(--radius-lg); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); border: 2px solid var(--accent-gold);">
+            <div style="width: 72px; height: 72px; background: rgba(197, 160, 89, 0.15); color: #C5A059; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">
+                <i data-lucide="lock"></i>
+            </div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.85rem; color: var(--primary-navy); margin: 0 0 0.5rem 0;">Executive Board Access</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem;">Please input the authorized institutional gatephrase to unlock the administrative console.</p>
+            <form id="gatephrase-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="password" id="gatephrase-input" required placeholder="Enter Gatephrase..." style="padding: 0.85rem 1.25rem; font-size: 1.1rem; border: 2px solid var(--border-color); border-radius: var(--radius-sm); outline: none; text-align: center; letter-spacing: 0.1em; transition: border-color var(--transition-fast);">
+                <div id="gate-error" style="color: #e53e3e; font-size: 0.85rem; font-weight: 600; display: none;">Invalid gatephrase. Access denied.</div>
+                <button type="submit" class="btn btn-primary btn-full" style="padding: 0.85rem; font-size: 1.1rem; font-weight: 700; margin-top: 0.5rem;"><i data-lucide="key"></i> Authenticate Session</button>
+            </form>
+            <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
+                <a href="../index.html" style="color: var(--primary-navy); text-decoration: underline;">Return to Public Journal Website</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="admin-header">
+        <div class="admin-header-container">
+            <div class="admin-brand">
+                <a href="../index.html" class="back-link" title="Back to Journal Website">
+                    <i data-lucide="arrow-left"></i>
+                </a>
+                <div class="brand-titles">
+                    <h1>SRIJAN Executive Board Console</h1>
+                    <span class="subtitle">Editorial Screening & Assessment Portal</span>
+                </div>
+            </div>
+            <div class="admin-controls">
+                <div id="db-status-badge" class="db-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Connecting Supabase...</span>
+                </div>
+                <a href="../index.html" class="btn btn-outline-admin"><i data-lucide="external-link"></i> Live Website</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <!-- Key Metrics Cards -->
+        <section class="admin-metrics">
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="file-text"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="total-sub-count">0</span>
+                    <span class="metric-label">Manuscript Submissions</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="clock"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="screening-count">0</span>
+                    <span class="metric-label">Pending Screening</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="users"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="reviewer-count">0</span>
+                    <span class="metric-label">Reviewer Applications</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="message-square"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="message-count">0</span>
+                    <span class="metric-label">Editorial Queries</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Navigation Tabs -->
+        <section class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="submissions">
+                <i data-lucide="file-code"></i> Manuscripts (<span id="tab-sub-badge">0</span>)
+            </button>
+            <button class="admin-tab-btn" data-tab="reviewers">
+                <i data-lucide="user-check"></i> Reviewers (<span id="tab-rev-badge">0</span>)
+            </button>
+            <button class="admin-tab-btn" data-tab="contacts">
+                <i data-lucide="inbox"></i> Inquiries & Proposals (<span id="tab-msg-badge">0</span>)
+            </button>
+        </section>
+
+        <!-- Tab Content 1: Submissions -->
+        <section id="pane-submissions" class="admin-pane active">
+            <div class="pane-header">
+                <h2>Manuscripts in Editorial Pipeline</h2>
+                <div class="table-search">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="search-sub" placeholder="Search by author, title, ID...">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Tracking ID</th>
+                            <th>Date</th>
+                            <th>Author & Affiliation</th>
+                            <th>Manuscript Title</th>
+                            <th>Domain / Type</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sub-tbody">
+                        <tr><td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading submissions...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tab Content 2: Reviewers -->
+        <section id="pane-reviewers" class="admin-pane" hidden>
+            <div class="pane-header">
+                <h2>Reviewer Panel Applications</h2>
+                <div class="table-search">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="search-rev" placeholder="Search by name, expertise...">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Application ID</th>
+                            <th>Date</th>
+                            <th>Name & Institution</th>
+                            <th>Expertise Keywords</th>
+                            <th>Profile / ORCID</th>
+                            <th>Status</th>
+                            <th>CV / Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rev-tbody">
+                        <tr><td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading reviewers...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tab Content 3: Contacts -->
+        <section id="pane-contacts" class="admin-pane" hidden>
+            <div class="pane-header">
+                <h2>Editorial Messages & Proposals</h2>
+                <div class="table-search">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="search-msg" placeholder="Search messages...">
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Message ID</th>
+                            <th>Date</th>
+                            <th>Sender Name & Email</th>
+                            <th>Subject Category</th>
+                            <th>Message Preview</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="msg-tbody">
+                        <tr><td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading messages...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Detailed Abstract & Message Viewing -->
+    <div id="view-modal" class="modal" role="dialog" aria-modal="true" hidden>
+        <div class="modal-overlay"></div>
+        <div class="modal-container admin-modal-container">
+            <div class="modal-header">
+                <h3 id="view-modal-title"><i data-lucide="file-search"></i> Details View</h3>
+                <button class="modal-close" aria-label="Close modal"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body" id="view-modal-content">
+                <!-- Content injected dynamically -->
+            </div>
+            <div class="modal-footer-actions">
+                <button type="button" class="btn btn-primary modal-close-action"><i data-lucide="check"></i> Done Viewing</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Database Scripts & Logic -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>

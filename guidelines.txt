@@ -1,0 +1,46 @@
+SRIJAN — Full Author Guidelines (V1, 2025)
+Aims & Scope
+SRIJAN publishes original scholarship across Humanities, Social Sciences, Interdisciplinary
+Studies, and Performance/Theatre Studies.
+Article Types
+• Research Article: 3,000–6,000 words
+• Review Article: 2,500–5,000 words
+• Short Communication / Notes: 1,500–2,500 words
+• Book Review: 1,000–1,800 words
+Formatting Requirements
+• Authors must use the SRIJAN standard manuscript template.
+• Font: Times New Roman, 12 pt; spacing 1.5; margins 1 inch; justified text.
+• Headings must follow hierarchy (H1 > H2 > H3).
+• Abstract: 150–250 words + 4–6 keywords.
+• Citation Style: MLA 9th (preferred) OR APA 7th — maintain consistency.
+File Submission
+• Upload ONE PDF for peer review (must NOT contain author identity inside manuscript).
+• Upload separate Title Page (DOCX) including:
+ - Title of article
+ - Author name(s)
+ - Affiliation(s)
+ - Email(s)
+ - ORCID (optional)
+• Insert figures/tables where first cited WITH captions.
+• For high‑resolution figures (if needed): PNG/JPEG 300 dpi submitted separately.
+Ethics & Academic Integrity
+• Only original & unpublished work accepted.
+• Turnitin similarity preferred < 10%.
+• Proper permissions required for copyrighted images/data.
+• Any conflict of interest or funding support must be declared.
+Peer Review Policy
+• Double‑blind review.
+• Desk screening: 7–10 days.
+• Review period: 3–5 weeks (approximate).
+• Revision cycle: 2–4 weeks.
+Open Access & Rights
+• Authors retain copyright.
+• Journal receives non‑exclusive rights to publish & archive.
+• Articles are accessible open access on journal site.
+File Naming Rules
+• TitlePage_Surname_FirstWordOfTitle.docx
+• Manuscript_Blind_FirstWordOfTitle.pdf
+• Figures_FirstWordOfTitle_Fig1.png (etc.)
+Submission Contact
+All submissions must be made through the journal submission portal OR directly by email:
+srijan.globalreview@gmail.com

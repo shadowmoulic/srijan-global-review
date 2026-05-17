@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRIJAN: Global Review of Arts, Science & Humanities | Open Access Journal</title>
+    <meta name="description"
+        content="SRIJAN is an international peer-reviewed, bi-annual open access journal publishing high-quality rigorous research across Arts, Science, Humanities, and Interdisciplinary Studies.">
+    <meta name="keywords"
+        content="SRIJAN, Journal, Arts, Science, Humanities, Peer-Reviewed, Open Access, ISSN, DOI, Interdisciplinary Research, Academic Journal">
+    <meta name="author" content="SRIJANTIRTHA">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Web Components -->
+    <script src="components.js"></script>
+</head>
+
+<body class="academic-theme">
+
+    <srijan-header base-path="./" active-page="home"></srijan-header>
+
+
+    <!-- Main Content Container -->
+    <main role="main">
+
+        <!-- 1. HERO SECTION -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-accent"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="journal-status-badges">
+                        <span class="badge status-issn"><i data-lucide="award"></i> ISSN Applied For</span>
+                        <span class="badge status-oa"><i data-lucide="unlock"></i> Open Access</span>
+                        <span class="badge status-pr"><i data-lucide="users"></i> Double Blind Peer Review</span>
+                        <span class="badge status-freq"><i data-lucide="calendar"></i> Bi-Annual Publication</span>
+                    </div>
+                    <h2 class="hero-title">SRIJAN: Global Review of Arts, Science & Humanities</h2>
+                    <p class="hero-subtitle">An international peer-reviewed academic forum dedicated to
+                        cross-disciplinary scholarship, theoretical innovation, and empirical discovery across
+                        humanistic and scientific frontiers.</p>
+
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg action-submit" id="hero-submit-btn">
+                            <i data-lucide="file-text"></i> Submit Paper Online
+                        </button>
+                        <a href="#current-issue" class="btn btn-outline btn-lg action-issue">
+                            <i data-lucide="book-open"></i> View Current Issue
+                        </a>
+                        <button class="btn btn-ghost btn-lg action-reviewer" id="hero-reviewer-btn">
+                            <i data-lucide="user-plus"></i> Become a Reviewer
+                        </button>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <div class="metric-card">
+                            <span class="metric-num">2026</span>
+                            <span class="metric-label">Starting Year</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-num">100%</span>
+                            <span class="metric-label">Diamond Open Access</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-num">35 Days</span>
+                            <span class="metric-label">Avg. Review Time</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-num">CC BY 4.0</span>
+                            <span class="metric-label">Liberal Licensing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="cover-showcase">
+                        <div class="cover-card">
+                            <div class="cover-header">
+                                <span class="vol-tag">Volume 1 • Issue 1</span>
+                                <span class="date-tag">April 2026</span>
+                            </div>
+                            <img src="assets/journal_cover.png" alt="SRIJAN Journal Cover Preview"
+                                onerror="this.src='https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=500&q=80'">
+                            <div class="cover-footer">
+                                <span>Premier Inaugural Edition</span>
+                            </div>
+                        </div>
+                        <div class="showcase-badge">
+                            <i data-lucide="sparkles"></i>
+                            <span>Latest Articles Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT THE JOURNAL SECTION -->
+        <section id="about" class="section about-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Overview & Charter</span>
+                    <h2 class="section-title">About SRIJAN Journal</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">An institutional commitment to advancing rigorous scholarly dialogue
+                        across international boundaries.</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text-column">
+                        <h3 class="about-lead">Fostering Excellence in Cross-Disciplinary Discourse</h3>
+                        <p><strong>SRIJAN: Global Review of Arts, Science & Humanities</strong> is a premier
+                            international, double-blind peer-reviewed open access journal established to bridge the
+                            traditional divide between humanistic inquiry and empirical sciences.</p>
+                        <p>Our mandate is to publish cutting-edge theoretical investigations, rigorous qualitative and
+                            quantitative studies, and high-impact critical reviews that address contemporary
+                            intellectual and societal challenges. All publications adhere to the strict ethical
+                            guidelines laid out by COPE (Committee on Publication Ethics).</p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>Zero Article Processing Charges (APC):</strong> Committed to equitable
+                                    publishing through Diamond Open Access sponsorship by SRIJANTIRTHA.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>Global Reach:</strong> Indexed metadata distribution and digital object
+                                    identifiers (DOI) assigned to every published manuscript.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-metadata-box">
+                        <div class="box-title-bar">
+                            <i data-lucide="file-check"></i>
+                            <h4>Journal Metadata & Details</h4>
+                        </div>
+                        <ul class="metadata-list">
+                            <li>
+                                <span class="meta-label"><i data-lucide="building"></i> Publisher:</span>
+                                <span class="meta-val">SRIJANTIRTHA (Reg No. IV-1901-00880/2025)</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="calendar-clock"></i> Starting Year:</span>
+                                <span class="meta-val">2026</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="repeat"></i> Frequency:</span>
+                                <span class="meta-val">Bi-Annual in April & October</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="laptop"></i> Publication Format:</span>
+                                <span class="meta-val">Online & Print / Open Access</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="globe-2"></i> Publication Language:</span>
+                                <span class="meta-val">English</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="gavel"></i> Peer Review Model:</span>
+                                <span class="meta-val">Double-Blind Peer Review</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="layers"></i> Subject Areas:</span>
+                                <span class="meta-val">Arts, Science, Humanities, Social Sciences, & Interdisciplinary
+                                    Studies</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="copyright"></i> License:</span>
+                                <span class="meta-val">Creative Commons (CC BY 4.0)</span>
+                            </li>
+                        </ul>
+                        <div class="box-action">
+                            <a href="#scope" class="btn btn-outline btn-full"><i data-lucide="compass"></i> Explore Aim
+                                & Scope</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. AIM & SCOPE SECTION -->
+        <section id="scope" class="section scope-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Subject Matrix</span>
+                    <h2 class="section-title">Aim & Scope</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">SRIJAN welcomes foundational and applied research across eight
+                        principal intellectual domains.</p>
+                </div>
+
+                <div class="scope-grid">
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="book-open-check"></i></div>
+                        <h3 class="scope-name">Literature</h3>
+                        <p class="scope-desc">Comparative literature, post-colonial theory, literary criticism, digital
+                            humanities, and contemporary poetics.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="message-square"></i></div>
+                        <h3 class="scope-name">Linguistics</h3>
+                        <p class="scope-desc">Applied linguistics, sociolinguistics, cognitive semantics, computational
+                            grammar, and language preservation.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="compass"></i></div>
+                        <h3 class="scope-name">Philosophy</h3>
+                        <p class="scope-desc">Epistemology, moral philosophy, bioethics, philosophy of science,
+                            phenomenology, and eastern philosophical systems.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="users-2"></i></div>
+                        <h3 class="scope-name">Sociology</h3>
+                        <p class="scope-desc">Social stratification, urbanization, demographic dynamics, cultural
+                            anthropology, and technology studies.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="brain"></i></div>
+                        <h3 class="scope-name">Psychology</h3>
+                        <p class="scope-desc">Cognitive behavioral sciences, neuro-psychology, organizational behavior,
+                            developmental psychology, and clinical studies.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="graduation-cap"></i></div>
+                        <h3 class="scope-name">Education</h3>
+                        <p class="scope-desc">Pedagogical innovation, educational psychology, ed-tech evaluation,
+                            curriculum theory, and inclusive education policy.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="music-4"></i></div>
+                        <h3 class="scope-name">Theatre & Performance</h3>
+                        <p class="scope-desc">Dramaturgy, ethnomusicology, performative arts, visual aesthetics,
+                            cinematic studies, and history of performative traditions.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="network"></i></div>
+                        <h3 class="scope-name">Interdisciplinary Research</h3>
+                        <p class="scope-desc">Interface of AI and ethics, environmental humanities, medical
+                            anthropology, science & technology studies (STS).</p>
+                    </div>
+                </div>
+
+                <div class="scope-cta-box">
+                    <div class="scope-cta-content">
+                        <h4>Have research falling within or at the intersection of these fields?</h4>
+                        <p>We encourage authors to consult our comprehensive editorial policies before formatting their
+                            manuscript.</p>
+                    </div>
+                    <div class="scope-cta-buttons">
+                        <a href="#guidelines" class="btn btn-outline"><i data-lucide="file-sliders"></i> Author
+                            Guidelines</a>
+                        <button class="btn btn-primary" id="scope-submit-btn"><i data-lucide="arrow-right"></i> Start
+                            Submission</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CURRENT ISSUE SECTION -->
+        <section id="current-issue" class="section issue-section bg-light">
+            <div class="container">
+                <div class="issue-header-card">
+                    <div class="issue-banner-info">
+                        <span class="issue-badge">Inaugural Edition</span>
+                        <h2 class="issue-title">Volume 1 • Issue 1 — April 2026</h2>
+                        <p class="issue-meta">Published: 05 April 2026 | Total Articles: 5 | Diamond Open Access</p>
+                    </div>
+                    <div class="issue-banner-actions">
+                        <a href="volume-1-issue-1-2026/" class="btn btn-outline"><i data-lucide="book"></i> View
+                            Complete Table of Contents</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. EDITORIAL BOARD SECTION -->
+        <section id="editorial" class="section editorial-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Academic Stewardship</span>
+                    <h2 class="section-title">Editorial Board</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">Our esteemed editorial leadership ensures stringent academic review
+                        and upholds international publication standards.</p>
+                </div>
+
+                <div class="editorial-category-title">
+                    <i data-lucide="award"></i>
+                    <h3>Executive Editor-in-Chief & Advisory Oversight</h3>
+                </div>
+
+                <div class="editorial-grid">
+                    <!-- Member 1 -->
+                    <div class="faculty-card executive-card">
+                        <div class="faculty-badge-top">Editor-in-Chief</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Dr. (HC) Manas Moulic</h4>
+                            <span class="faculty-designation">Assistant Professor in English</span>
+                            <span class="faculty-dept">Department of English</span>
+                            <span class="faculty-inst">Ramakrishna Mission Vivekananda Centenary College, Rahara,
+                                Kolkata 700118</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> West Bengal, India</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i> manas.moulic@rkmvccrahara.org</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://rkmvccrahara.org/faculty/dr-manas-moulic" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline"><i data-lucide="external-link"></i> Institutional
+                                Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0002-8491-9281</span>
+                        </div>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Advisory Body</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Prof. Mangal Chandra Moulic</h4>
+                            <span class="faculty-designation">Principal (Retired)</span>
+                            <span class="faculty-dept">Department of English</span>
+                            <span class="faculty-inst">Dr. B. R. Ambedkar College, Betai, Nadia 741163</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> West Bengal, India</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i>
+                                    principal@brambedkarcollege.ac.in</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://brambedkarcollege.ac.in/faculty/prof-mangal-moulic" target="_blank"
+                                rel="noopener" class="btn btn-sm btn-outline"><i data-lucide="external-link"></i>
+                                Institutional Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0003-1254-8291</span>
+                        </div>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Advisory Body</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Dr. Durga Ghoshal</h4>
+                            <span class="faculty-designation">Associate Professor of English (Retired)</span>
+                            <span class="faculty-dept">Department of English</span>
+                            <span class="faculty-inst">Government General Degree College</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> West Bengal, India</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i> dghoshal@ggdc.ac.in</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://ggdc.ac.in/faculty/dr-durga-ghoshal" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline"><i data-lucide="external-link"></i> Institutional
+                                Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0001-9982-1029</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5B. ASSOCIATE EDITORS -->
+                <div class="editorial-category-title mt-12">
+                    <i data-lucide="layers"></i>
+                    <h3>Associate Editors</h3>
+                </div>
+                <div class="editorial-grid">
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Associate Editor</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Md. Mojibur Rahman</h4>
+                            <span class="faculty-designation">Associate Professor</span>
+                            <span class="faculty-dept">Department of Humanities and Social Sciences</span>
+                            <span class="faculty-inst">Indian Institute of Technology (IIT ISM), Dhanbad 826004</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> Jharkhand, India</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i> mrahmanelt@iitism.ac.in</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://iitism.ac.in/faculty/mrahmanelt" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline"><i data-lucide="external-link"></i> Institutional
+                                Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0002-4521-9912</span>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Associate Editor</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Dr. Koutilya Bhattacharjee</h4>
+                            <span class="faculty-designation">Assistant Professor in Zoology</span>
+                            <span class="faculty-dept">Pharmacology and Disease Biology Lab, PG Dept of Zoology</span>
+                            <span class="faculty-inst">Ramakrishna Mission Vivekananda Centenary College, Rahara
+                                700118</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> West Bengal, India</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i>
+                                    kbhattacharjee@rkmvccrahara.org</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://rkmvccrahara.org/faculty/dr-koutilya-bhattacharjee" target="_blank"
+                                rel="noopener" class="btn btn-sm btn-outline"><i data-lucide="external-link"></i>
+                                Institutional Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0003-8821-3412</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. INTERNATIONAL EDITORIAL MEMBERS SECTION -->
+                <div id="international-advisory" class="editorial-category-title intl-title mt-12">
+                    <i data-lucide="globe"></i>
+                    <h3>International Advisory Members</h3>
+                </div>
+                <p class="category-subtitle">Distinguished global scholars providing governance, strategic foresight,
+                    and international peer review oversight.</p>
+
+                <div class="editorial-grid intl-grid">
+                    <!-- Intl Member 1 -->
+                    <div class="faculty-card intl-card">
+                        <div class="faculty-badge-top intl-badge"><i data-lucide="globe-2"></i> International Board
+                        </div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Dr. Esha Chakraborty</h4>
+                            <span class="faculty-designation">R&D Scientist & Associate Editor</span>
+                            <span class="faculty-dept">Department of Biologics Research & Development</span>
+                            <span class="faculty-inst">Lonza Biologics, 228 Bath Road, Slough, Berkshire SL1 4DX</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> United Kingdom</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i> esha.chakravarty@lonza.com</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://lonza.com/research/scientists/esha-chakraborty" target="_blank"
+                                rel="noopener" class="btn btn-sm btn-outline"><i data-lucide="external-link"></i>
+                                Institutional Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0002-3310-9012</span>
+                        </div>
+                    </div>
+
+                    <!-- Intl Member 2 -->
+                    <div class="faculty-card intl-card">
+                        <div class="faculty-badge-top intl-badge"><i data-lucide="globe-2"></i> International Board
+                        </div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Prof. Dr. David H. Jenkins</h4>
+                            <span class="faculty-designation">Senior Professor of Cognitive Science & Applied
+                                Linguistics</span>
+                            <span class="faculty-dept">School of Philosophy, Psychology and Language Sciences</span>
+                            <span class="faculty-inst">University of Edinburgh, Dugald Stewart Bldg, Edinburgh EH8
+                                9AD</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> Scotland, UK</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i> david.jenkins@ed.ac.in</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://ed.ac.in/profile/david-jenkins" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline"><i data-lucide="external-link"></i> Edinburgh Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0003-7541-1123</span>
+                        </div>
+                    </div>
+
+                    <!-- Intl Member 3 -->
+                    <div class="faculty-card intl-card">
+                        <div class="faculty-badge-top intl-badge"><i data-lucide="globe-2"></i> International Board
+                        </div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Prof. Dr. Marcus Vance</h4>
+                            <span class="faculty-designation">Professor of Cognitive Behavioral Sciences</span>
+                            <span class="faculty-dept">Department of Psychology & Brain Sciences</span>
+                            <span class="faculty-inst">Johns Hopkins University, 3400 N. Charles St, Baltimore MD
+                                21218</span>
+                            <span class="faculty-country"><i data-lucide="map-pin"></i> United States</span>
+                            <div class="faculty-contact">
+                                <span class="inst-email"><i data-lucide="mail"></i> mvance@jhu.edu</span>
+                            </div>
+                        </div>
+                        <div class="faculty-card-footer">
+                            <a href="https://jhu.edu/faculty/marcus-vance" target="_blank" rel="noopener"
+                                class="btn btn-sm btn-outline"><i data-lucide="external-link"></i> JHU Profile</a>
+                            <span class="orcid-tag">ORCID: 0000-0001-8821-4567</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6B. ASSISTANT EDITORS & REVIEWERS -->
+                <div class="editorial-category-title mt-12">
+                    <i data-lucide="users"></i>
+                    <h3>Assistant Editors & Review Panel</h3>
+                </div>
+                <div class="editorial-grid">
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Assistant Editor</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Kanta Rao D</h4>
+                            <span class="faculty-designation">Assistant Professor (English)</span>
+                            <span class="faculty-inst">Gandhi Institute of Engineering and Technology University (GIET),
+                                Gunupur 765022, Odisha</span>
+                            <div class="faculty-contact mt-2">
+                                <span class="inst-email"><i data-lucide="mail"></i> dkantarao@giet.edu</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Assistant Editor</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Sharmistha Basu</h4>
+                            <span class="faculty-designation">Assistant Professor (English)</span>
+                            <span class="faculty-inst">Narula Institute of Technology (NIT), 81 Nilgunj Road, Agarpara,
+                                Kolkata 700109</span>
+                            <div class="faculty-contact mt-2">
+                                <span class="inst-email"><i data-lucide="mail"></i> sharmistha.basu@nit.ac.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Assistant Editor</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Shantanu Chakravarty</h4>
+                            <span class="faculty-designation">Assistant Professor (English)</span>
+                            <span class="faculty-inst">Guru Nanak Institute of Technology (GNIT), 157/F Nilgunj Road,
+                                Panihati, Kolkata 700114</span>
+                            <div class="faculty-contact mt-2">
+                                <span class="inst-email"><i data-lucide="mail"></i>
+                                    shantanu.chakraborty@gnit.ac.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top sub-editor">Assistant Editor</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Dr. Anannya Gain</h4>
+                            <span class="faculty-designation">Assistant Professor (English)</span>
+                            <span class="faculty-inst">Haringhata Mahavidyalaya, Subarnapur, Nadia 741249, West
+                                Bengal</span>
+                            <div class="faculty-contact mt-2">
+                                <span class="inst-email"><i data-lucide="mail"></i>
+                                    anannya.gain@haringhatamahavidyalaya.org</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top reviewer-badge">Peer Reviewer</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Manisha Moulic</h4>
+                            <span class="faculty-designation">Research Scholar, Department of English</span>
+                            <span class="faculty-inst">University of Kalyani, Kalyani 741235, West Bengal</span>
+                            <div class="faculty-contact mt-2">
+                                <span class="inst-email"><i data-lucide="mail"></i> manisha.moulic@klyuniv.ac.in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card">
+                        <div class="faculty-badge-top reviewer-badge">Peer Reviewer</div>
+                        <div class="faculty-details">
+                            <h4 class="faculty-name">Sayantan Ghosh</h4>
+                            <span class="faculty-designation">Research Scholar, Department of Comparative
+                                Literature</span>
+                            <span class="faculty-inst">Jadavpur University, Kolkata 700032, West Bengal</span>
+                            <div class="faculty-contact mt-2">
+                                <span class="inst-email"><i data-lucide="mail"></i>
+                                    sayantan.ghosh@jadavpuruniversity.in</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editorial-recruitment-box">
+                    <div class="recruitment-content">
+                        <h4>Are you an established academician seeking editorial involvement?</h4>
+                        <p>SRIJAN is continually seeking qualified peer reviewers and editorial board candidates across
+                            our specialized domains.</p>
+                    </div>
+                    <button class="btn btn-primary" id="join-board-btn"><i data-lucide="user-plus"></i> Become Reviewer
+                        / Editor</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHIVES SECTION -->
+        <section id="archives" class="section archives-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Digital Repository</span>
+                    <h2 class="section-title">Journal Archives</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">Explore current and upcoming catalogued volumes of SRIJAN.</p>
+                </div>
+
+                <div class="archive-grid">
+                    <div class="archive-box active-archive">
+                        <div class="archive-year">2026</div>
+                        <h4 class="archive-vol">Volume 1</h4>
+                        <ul class="archive-issues">
+                            <li>
+                                <a href="volume-1-issue-1-2026/" class="issue-link">
+                                    <i data-lucide="book-open"></i> Issue 1 (April 2026) <span
+                                        class="status-badge-sm live">Live</span>
+                                </a>
+                            </li>
+                            <li>
+                                <span class="issue-link disabled">
+                                    <i data-lucide="clock"></i> Issue 2 (October 2026) <span
+                                        class="status-badge-sm upcoming">In Progress</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="archive-box upcoming-archive">
+                        <div class="archive-year">2027</div>
+                        <h4 class="archive-vol">Volume 2 (Scheduled)</h4>
+                        <ul class="archive-issues">
+                            <li>
+                                <span class="issue-link disabled">
+                                    <i data-lucide="calendar"></i> Issue 1 (January 2027) <span
+                                        class="status-badge-sm planned">Planned</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="issue-link disabled">
+                                    <i data-lucide="calendar"></i> Issue 2 (July 2027) <span
+                                        class="status-badge-sm planned">Planned</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="archiving-notice">
+                    <i data-lucide="database"></i>
+                    <span><strong>Long-Term Archiving Policy:</strong> All published manuscripts are maintained
+                        permanently on institutional cloud storage and are scheduled for deposit in CLOCKSS & Portico
+                        upon final ISSN accreditation.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTHOR GUIDELINES SECTION -->
+        <section id="guidelines" class="section guidelines-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Submission Protocols</span>
+                    <h2 class="section-title">Author Guidelines</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">Essential instructions for preparing and submitting your manuscript
+                        to SRIJAN.</p>
+                </div>
+
+                <div class="guidelines-wrapper">
+                    <div class="guide-tabs">
+                        <button class="tab-btn active" data-tab="prep"><i data-lucide="file-edit"></i> 1. Manuscript
+                            Preparation</button>
+                        <button class="tab-btn" data-tab="format"><i data-lucide="align-left"></i> 2. Formatting &
+                            Citation</button>
+                        <button class="tab-btn" data-tab="apc"><i data-lucide="coins"></i> 3. Fee Transparency</button>
+                    </div>
+
+                    <div class="tab-content active" id="tab-prep">
+                        <div class="guide-card">
+                            <h3>Manuscript Preparation Checklist</h3>
+                            <p>Before submitting your manuscript, please ensure that your submission fulfills all the
+                                following mandatory criteria:</p>
+                            <ul class="checklist">
+                                <li>
+                                    <i data-lucide="check"></i>
+                                    <div><strong>Originality:</strong> The manuscript must be original work, not previously published, and not currently under consideration by any other journal.</div>
+                                </li>
+                                <li>
+                                    <i data-lucide="check"></i>
+                                    <div><strong>Anonymization:</strong> To facilitate double-blind review, the main manuscript file must NOT contain author names, affiliations, or identifying acknowledgments. Include these only on a separate Title Page.</div>
+                                </li>
+                                <li>
+                                    <i data-lucide="check"></i>
+                                    <div><strong>Abstract & Keywords:</strong> Include a concise abstract (150-250 words) outlining background, methodology, results, and conclusions, followed by 5-7 standardized keywords.</div>
+                                </li>
+                                <li>
+                                    <i data-lucide="check"></i>
+                                    <div><strong>File Format:</strong> Editable Microsoft Word (.doc / .docx) or LaTeX (.tex) format.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-format">
+                        <div class="guide-card">
+                            <h3>Formatting & Style Standards</h3>
+                            <p>SRIJAN adheres to the latest edition of the APA Style Manual (7th Edition) for Social
+                                Sciences/Education and MLA format for Literature/Arts submissions.</p>
+                            <div class="format-spec-grid">
+                                <div class="spec-item">
+                                    <h4>Typography</h4>
+                                    <p>12-point Times New Roman or Garamond, 1.5 line spacing throughout, with 1-inch
+                                        margins on all sides.</p>
+                                </div>
+                                <div class="spec-item">
+                                    <h4>References</h4>
+                                    <p>Complete bibliographical references must be appended at the end. Include active
+                                        DOIs where available.</p>
+                                </div>
+                                <div class="spec-item">
+                                    <h4>Figures & Tables</h4>
+                                    <p>All high-resolution figures (minimum 300 DPI) and tables must be embedded
+                                        directly within the text at the appropriate point, with descriptive captions.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-apc">
+                        <div class="guide-card text-center apc-card">
+                            <div class="apc-icon"><i data-lucide="award"></i></div>
+                            <h3>Zero Article Processing Charges (APC)</h3>
+                            <p class="apc-lead">SRIJAN is fully committed to Diamond Open Access.</p>
+                            <p>We do not charge any submission fees, editorial processing charges, or publication fees
+                                from authors. All operational expenses and digital preservation costs are completely
+                                subsidized by the parent academic body, <strong>SRIJANTIRTHA</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="download-templates text-center mt-8">
+                    <button class="btn btn-primary template-download-toast"><i data-lucide="download"></i> Download
+                        Official Manuscript Template (.docx)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PEER REVIEW POLICY SECTION -->
+        <section id="peer-review" class="section peer-review-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Evaluation Integrity</span>
+                    <h2 class="section-title">Peer Review Policy</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">A transparent overview of our rigorous double-blind evaluation
+                        workflow.</p>
+                </div>
+
+                <div class="review-workflow">
+                    <div class="workflow-step">
+                        <div class="step-icon"><i data-lucide="upload-cloud"></i></div>
+                        <div class="step-num">Step 1</div>
+                        <h4>Initial Submission</h4>
+                        <p>Manuscript received via secure online portal and assigned a unique tracking ID.</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step">
+                        <div class="step-icon"><i data-lucide="file-search"></i></div>
+                        <div class="step-num">Step 2</div>
+                        <h4>Editorial Screening</h4>
+                        <p>Checked for scope alignment, formatting compliance, and iThenticate similarity (< 15%).</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step highlight-step">
+                        <div class="step-icon"><i data-lucide="users"></i></div>
+                        <div class="step-num">Step 3</div>
+                        <h4>Double-Blind Review</h4>
+                        <p>Dispatched to 2+ independent international expert referees. Author & Reviewer identities
+                            remain strictly anonymous.</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step">
+                        <div class="step-icon"><i data-lucide="scale"></i></div>
+                        <div class="step-num">Step 4</div>
+                        <h4>Editorial Decision</h4>
+                        <p>Synthesis of reviewer evaluations: Accept, Minor Revisions, Major Revisions, or Reject.</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step text-success">
+                        <div class="step-icon"><i data-lucide="check-circle-2"></i></div>
+                        <div class="step-num">Step 5</div>
+                        <h4>Publication & Indexing</h4>
+                        <p>Final typesetting, DOI assignment, open-access distribution, and permanent digital archiving.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="review-guarantee">
+                    <div class="guarantee-icon"><i data-lucide="shield-check"></i></div>
+                    <div class="guarantee-text">
+                        <h4>Commitment to Referees and Scientific Objectivity</h4>
+                        <p>Our review process is strictly governed by COPE Ethical Guidelines. Referees evaluate papers
+                            purely on theoretical rigor, methodological soundness, and academic contribution. Conflicts
+                            of interest are actively screened.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PUBLICATION ETHICS SECTION -->
+        <section id="ethics" class="section ethics-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Institutional Compliance</span>
+                    <h2 class="section-title">Publication Ethics & Malpractice Statement</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">SRIJAN maintains zero tolerance for academic misconduct, data
+                        fabrication, or ethical breaches.</p>
+                </div>
+
+                <div class="ethics-grid">
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="shield-alert"></i></div>
+                        <h3>Originality & Plagiarism Policy</h3>
+                        <p>Every submitted manuscript undergoes compulsory similarity analysis using advanced
+                            text-matching software (iThenticate / Turnitin). Any manuscript exhibiting uncredited
+                            verbatim reproduction or similarity scores exceeding 15% is summarily rejected.</p>
+                    </div>
+
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="gavel"></i></div>
+                        <h3>Double-Blind Evaluation</h3>
+                        <p>To prevent implicit bias based on institutional prestige, nationality, or gender, all review
+                            procedures maintain double-blind anonymity. Reviewers are strictly prohibited from utilizing
+                            submitted data prior to publication.</p>
+                    </div>
+
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="copyright"></i></div>
+                        <h3>Copyright & Licensing</h3>
+                        <p>Authors retain full copyright of their published work under the Creative Commons Attribution
+                            (CC BY 4.0) License. Users are free to share and adapt the material provided appropriate
+                            attribution is accorded to the original SRIJAN publication.</p>
+                    </div>
+
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="unlock"></i></div>
+                        <h3>Open Access Mandate</h3>
+                        <p>In accordance with the Budapest Open Access Initiative (BOAI), all articles published in
+                            SRIJAN are immediately and freely accessible online without registration or subscription
+                            barriers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. INDEXING SECTION -->
+        <section id="indexing" class="section indexing-section bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Global Visibility</span>
+                    <h2 class="section-title">Indexing & Accreditation Roadmap</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">To ensure maximum international reach and citation impact, SRIJAN is
+                        pursuing comprehensive database inclusion.</p>
+                </div>
+
+                <div class="indexing-grid">
+                    <!-- Card 1 -->
+                    <div class="indexing-card status-planned">
+                        <div class="indexing-head">
+                            <i data-lucide="search" class="index-logo-icon"></i>
+                            <span class="indexing-badge planned">Application Planned</span>
+                        </div>
+                        <h3>Google Scholar</h3>
+                        <p>Metadata harvesting and automated indexing configuration for immediate author profile linkage
+                            upon first issue release.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="indexing-card status-planned">
+                        <div class="indexing-head">
+                            <i data-lucide="fingerprint" class="index-logo-icon"></i>
+                            <span class="indexing-badge in-progress">In Progress</span>
+                        </div>
+                        <h3>Crossref DOI</h3>
+                        <p>Official registration for digital object identifier (DOI) prefix assignment to guarantee
+                            persistent reference linking.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="indexing-card status-planned">
+                        <div class="indexing-head">
+                            <i data-lucide="book-check" class="index-logo-icon"></i>
+                            <span class="indexing-badge planned">Application Planned</span>
+                        </div>
+                        <h3>DOAJ (Directory of Open Access Journals)</h3>
+                        <p>Rigorous editorial compliance mapping to meet DOAJ Seal standards for open access
+                            transparency.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="indexing-card status-planned">
+                        <div class="indexing-head">
+                            <i data-lucide="share-2" class="index-logo-icon"></i>
+                            <span class="indexing-badge in-progress">In Progress</span>
+                        </div>
+                        <h3>ResearchGate</h3>
+                        <p>Official institutional publication repository link to maximize paper accessibility across
+                            global researcher networks.</p>
+                    </div>
+                </div>
+
+                <div class="issn-accreditation-banner">
+                    <div class="banner-text">
+                        <h3><i data-lucide="award"></i> Official ISSN Application Review</h3>
+                        <p>This scholarly portal has been structured in strict compliance with ISO 3297 international
+                            standards to support official National ISSN Centre evaluation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT US SECTION -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-category">Editorial Support</span>
+                    <h2 class="section-title">Contact Editorial Office</h2>
+                    <div class="title-separator"></div>
+                    <p class="section-description">For submission queries, indexing verification, or institutional
+                        partnerships.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info-column">
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <h4>Editorial Headquarters</h4>
+                                <p>Main Office: Betai, Nadia 741163, West Bengal, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="building"></i></div>
+                            <div>
+                                <h4>City Administrative Office</h4>
+                                <p>Flat No. B1, B2/236, Kalyani 741235, West Bengal, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="phone"></i></div>
+                            <div>
+                                <h4>Official Inquiries & Phone</h4>
+                                <p>+91 90623 85173 / +91 89105 54624 / +91 86176 28810</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="mail"></i></div>
+                            <div>
+                                <h4>Official E-Mails</h4>
+                                <p><strong>Submissions:</strong>
+                                    srijan.globalreview@gmail.com<br><strong>Publisher:</strong> contact@srijantirtha.in
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="file-check"></i></div>
+                            <div>
+                                <h4>Publisher Registration</h4>
+                                <p>SRIJANTIRTHA Reg No: IV-1901-00880/2025 | PAN: ABMTS9991H</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-column">
+                        <div class="form-container">
+                            <h3>Send an Official Message</h3>
+                            <form id="editorial-contact-form">
+                                <div class="form-group">
+                                    <label for="c-name">Full Name *</label>
+                                    <input type="text" id="c-name" required placeholder="Prof. / Dr. / Scholar Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-email">Institutional Email *</label>
+                                    <input type="email" id="c-email" required placeholder="name@institution.edu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-subject">Subject Category *</label>
+                                    <select id="c-subject" required>
+                                        <option value="">-- Select Category --</option>
+                                        <option value="Submission">Manuscript Submission Query</option>
+                                        <option value="Reviewer">Reviewer Application Query</option>
+                                        <option value="Special">Special Issue Proposal</option>
+                                        <option value="General">General Editorial Inquiry</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-msg">Message *</label>
+                                    <textarea id="c-msg" rows="5" required
+                                        placeholder="Elaborate your query clearly..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full"><i data-lucide="send"></i>
+                                    Transmit Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 9. FOOTER -->
+    <srijan-footer base-path="./"></srijan-footer>
+    <srijan-modals></srijan-modals>
+
+
+    <!-- Database & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

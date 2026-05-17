@@ -1,0 +1,42 @@
+SRIJAN – Research Paper Template (Literature)
+Title of Article: ________________________________
+Author(s): ______________________________________
+Affiliation(s): __________________________________
+Email(s): _______________________________________
+ORCID (optional): ________________________________
+Abstract (150–250 words):
+Keywords (4–6):
+1. Introduction
+Write introduction here...
+2. Literature Review / Background
+Write section here...
+3. Methodology / Approach
+Write methodology here...
+4. Analysis / Interpretation / Discussion
+Write main critical discussion here...
+5. Conclusion
+Summarize key ideas here...
+References (MLA 9 or APA 7)
+• AuthorLast, AuthorFirst. “Title.” Journal, Year.
+• AuthorLast, AuthorFirst. Book Title. Publisher, Year.
+SRIJAN – Research Paper Template (Science / IMRaD)
+Title of Article: ________________________________
+Author(s): ______________________________________
+Affiliation(s): __________________________________
+Email(s): _______________________________________
+ORCID (optional): ________________________________
+Abstract (150–250 words):
+Keywords (4–6):
+1. Introduction
+Write introduction here...
+2. Methods / Materials
+Write methods here...
+3. Results
+Write results here...
+4. Discussion
+Interpret findings here...
+5. Conclusion
+Summarize outcomes here...
+References (APA 7 Only)
+• AuthorLast, A. A. (Year). Title of article. Journal Name, volume(issue), page–page.
+• AuthorLast, A. A. (Year). Book Title. Publisher.
