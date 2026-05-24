@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publication Ethics | SRIJAN Journal</title>
+    <meta name="description" content="Publication ethics, plagiarism policies, double-blind evaluation guidelines, copyright information, and open access mandates of SRIJAN.">
+    <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.435.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Web Components -->
+    <script src="../components.js"></script>
+</head>
+<body class="academic-theme">
+
+    <srijan-header base-path="../" active-page="guidelines"></srijan-header>
+
+    <main role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Publication Ethics</h1>
+                <p class="page-subtitle">COPE-compliant ethical frameworks, copyright rules, and malpractice statements</p>
+            </div>
+        </section>
+
+        <section class="section ethics-section bg-light">
+            <div class="container">
+                <div class="ethics-grid">
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="shield-alert"></i></div>
+                        <h3>Originality & Plagiarism Policy</h3>
+                        <p>Every submitted manuscript undergoes compulsory similarity analysis using advanced text-matching software (iThenticate / Turnitin). Any manuscript exhibiting uncredited verbatim reproduction or similarity scores exceeding 15% is summarily rejected.</p>
+                    </div>
+
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="gavel"></i></div>
+                        <h3>Double-Blind Evaluation</h3>
+                        <p>To prevent implicit bias based on institutional prestige, nationality, or gender, all review procedures maintain double-blind anonymity. Reviewers are strictly prohibited from utilizing submitted data prior to publication.</p>
+                    </div>
+
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="copyright"></i></div>
+                        <h3>Copyright & Licensing</h3>
+                        <p>Authors retain full copyright of their published work under the Creative Commons Attribution (CC BY 4.0) License. Users are free to share and adapt the material provided appropriate attribution is accorded to the original SRIJAN publication.</p>
+                    </div>
+
+                    <div class="ethics-card">
+                        <div class="ethics-icon"><i data-lucide="unlock"></i></div>
+                        <h3>Open Access Mandate</h3>
+                        <p>In accordance with the Budapest Open Access Initiative (BOAI), all articles published in SRIJAN are immediately and freely accessible online without registration or subscription barriers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SUBMIT PAPER CTA BANNER -->
+        <section class="section cta-section" style="background-color: var(--primary-navy); color: white; padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.25rem; font-family: var(--font-heading); margin-bottom: 1rem; color: white;">Ready to Publish Your Next Breakthrough?</h2>
+                <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); max-width: 700px; margin: 0 auto 2rem;">SRIJAN welcomes rigorous empirical studies, theoretical reviews, and critical humanistic essays. Enjoy 100% Diamond Open Access with zero publication fees.</p>
+                <button class="btn btn-lg" id="scope-submit-btn" style="background-color: var(--accent-gold); color: var(--primary-navy); font-weight: 700; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="upload-cloud"></i> Submit Your Manuscript Online
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <srijan-footer base-path="../"></srijan-footer>
+    <srijan-modals></srijan-modals>
+
+    <!-- Database & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../app.js"></script>
+</body>
+</html>

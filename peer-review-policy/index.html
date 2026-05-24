@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Review Policy | SRIJAN Journal</title>
+    <meta name="description" content="Double-blind peer evaluation process, editorial screening, referee responsibilities, and publication workflow of SRIJAN.">
+    <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.435.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Web Components -->
+    <script src="../components.js"></script>
+</head>
+<body class="academic-theme">
+
+    <srijan-header base-path="../" active-page="guidelines"></srijan-header>
+
+    <main role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Peer Review Policy</h1>
+                <p class="page-subtitle">Rigorous double-blind evaluation workflow and quality control guarantees</p>
+            </div>
+        </section>
+
+        <section class="section peer-review-section bg-light">
+            <div class="container">
+                <div class="review-workflow">
+                    <div class="workflow-step">
+                        <div class="step-icon"><i data-lucide="upload-cloud"></i></div>
+                        <div class="step-num">Step 1</div>
+                        <h4>Initial Submission</h4>
+                        <p>Manuscript received via secure online portal and assigned a unique tracking ID.</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step">
+                        <div class="step-icon"><i data-lucide="file-search"></i></div>
+                        <div class="step-num">Step 2</div>
+                        <h4>Editorial Screening</h4>
+                        <p>Checked for scope alignment, formatting compliance, and iThenticate similarity (&lt; 15%).</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step highlight-step">
+                        <div class="step-icon"><i data-lucide="users"></i></div>
+                        <div class="step-num">Step 3</div>
+                        <h4>Double-Blind Review</h4>
+                        <p>Dispatched to 2+ independent international expert referees. Author & Reviewer identities remain strictly anonymous.</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step">
+                        <div class="step-icon"><i data-lucide="scale"></i></div>
+                        <div class="step-num">Step 4</div>
+                        <h4>Editorial Decision</h4>
+                        <p>Synthesis of reviewer evaluations: Accept, Minor Revisions, Major Revisions, or Reject.</p>
+                    </div>
+                    <div class="workflow-arrow"><i data-lucide="arrow-right"></i></div>
+                    <div class="workflow-step text-success">
+                        <div class="step-icon"><i data-lucide="check-circle-2"></i></div>
+                        <div class="step-num">Step 5</div>
+                        <h4>Publication & Indexing</h4>
+                        <p>Final typesetting, DOI assignment, open-access distribution, and permanent digital archiving.</p>
+                    </div>
+                </div>
+
+                <div class="review-guarantee" style="margin-top: 3rem;">
+                    <div class="guarantee-icon"><i data-lucide="shield-check"></i></div>
+                    <div class="guarantee-text">
+                        <h4>Commitment to Referees and Scientific Objectivity</h4>
+                        <p>Our review process is strictly governed by COPE Ethical Guidelines. Referees evaluate papers purely on theoretical rigor, methodological soundness, and academic contribution. Conflicts of interest are actively screened.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SUBMIT PAPER CTA BANNER -->
+        <section class="section cta-section" style="background-color: var(--primary-navy); color: white; padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.25rem; font-family: var(--font-heading); margin-bottom: 1rem; color: white;">Ready to Publish Your Next Breakthrough?</h2>
+                <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); max-width: 700px; margin: 0 auto 2rem;">SRIJAN welcomes rigorous empirical studies, theoretical reviews, and critical humanistic essays. Enjoy 100% Diamond Open Access with zero publication fees.</p>
+                <button class="btn btn-lg" id="scope-submit-btn" style="background-color: var(--accent-gold); color: var(--primary-navy); font-weight: 700; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="upload-cloud"></i> Submit Your Manuscript Online
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <srijan-footer base-path="../"></srijan-footer>
+    <srijan-modals></srijan-modals>
+
+    <!-- Database & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../app.js"></script>
+</body>
+</html>

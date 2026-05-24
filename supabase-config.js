@@ -8,28 +8,49 @@ const SUPABASE_CONFIG = {
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlqb2NnZWxvamx6cm5uc290dmdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNTQ1NjYsImV4cCI6MjA5MTczMDU2Nn0.OkJpTyweZAqWwGF3mNGqAHgiPgP0K77udiccPvzKVGw'
 };
 
+// Safe localStorage wrapper to prevent crashes in incognito or blocked environments
+const safeStorage = {
+    _cache: {},
+    getItem(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (e) {
+            console.warn('localStorage is blocked, falling back to memory cache:', e);
+            return this._cache[key] || null;
+        }
+    },
+    setItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (e) {
+            console.warn('localStorage is blocked, saving to memory cache:', e);
+            this._cache[key] = value;
+        }
+    }
+};
+
 // Seed LocalStorage with realistic mock data if empty, so the admin portal looks stunning instantly
 function initSeedData() {
-    if (!localStorage.getItem('srijan_submissions')) {
+    if (!safeStorage.getItem('srijan_submissions')) {
         const mockSubmissions = [
             { id: 'SRJ-2026-8491', title: 'Cognitive Poetics and Spatial Metaphors in Arundhati Roy’s Fiction', author: 'Dr. Devika Sen', email: 'dsen@jnu.ac.in', institution: 'Jawaharlal Nehru University', domain: 'Literature', type: 'Research Article', abstract: 'This paper analyzes the spatial architectures in modern post-colonial Indian fiction, demonstrating how linguistic metaphors construct cognitive boundaries.', date: '2026-05-14', status: 'Under Review', file: 'Sen_Cognitive_Poetics.docx' },
             { id: 'SRJ-2026-2310', title: 'Ethical Paradigms in Autonomous AI Agents: A Bioethical Assessment', author: 'Prof. Rajesh K. Varma', email: 'rvarma@iisc.ac.in', institution: 'Indian Institute of Science', domain: 'Interdisciplinary', type: 'Theoretical Review', abstract: 'An inquiry into the moral agency of autonomous algorithms operating in medical diagnostics, proposing a novel ethical governance framework.', date: '2026-05-16', status: 'Screening', file: 'Varma_AI_Bioethics.pdf' }
         ];
-        localStorage.setItem('srijan_submissions', JSON.stringify(mockSubmissions));
+        safeStorage.setItem('srijan_submissions', JSON.stringify(mockSubmissions));
     }
 
-    if (!localStorage.getItem('srijan_reviewers')) {
+    if (!safeStorage.getItem('srijan_reviewers')) {
         const mockReviewers = [
             { id: 'REV-9012', name: 'Dr. Elena Rostova', email: 'e.rostova@sorbonne.fr', institution: 'Sorbonne University', country: 'France', expertise: 'Comparative literature, Continental philosophy', link: 'https://orcid.org/0000-0002-1192-3341', date: '2026-05-15', status: 'Approved', cv: 'Rostova_CV_2026.pdf' }
         ];
-        localStorage.setItem('srijan_reviewers', JSON.stringify(mockReviewers));
+        safeStorage.setItem('srijan_reviewers', JSON.stringify(mockReviewers));
     }
 
-    if (!localStorage.getItem('srijan_contacts')) {
+    if (!safeStorage.getItem('srijan_contacts')) {
         const mockContacts = [
             { id: 'MSG-4412', name: 'Dr. Vikramaditya Bose', email: 'vbose@caluniv.ac.in', subject: 'Special Issue Proposal', message: 'Respected Editors, I am interested in guest editing a special issue on Digital Humanities in South Asia for Volume 2. Please advise on the formal proposal protocol.', date: '2026-05-17', status: 'Unread' }
         ];
-        localStorage.setItem('srijan_contacts', JSON.stringify(mockContacts));
+        safeStorage.setItem('srijan_contacts', JSON.stringify(mockContacts));
     }
 }
 
@@ -65,9 +86,9 @@ class SrijanDB {
         }
 
         // Always fallback / sync to LocalStorage
-        const existing = JSON.parse(localStorage.getItem('srijan_submissions') || '[]');
+        const existing = JSON.parse(safeStorage.getItem('srijan_submissions') || '[]');
         existing.unshift(entry);
-        localStorage.setItem('srijan_submissions', JSON.stringify(existing));
+        safeStorage.setItem('srijan_submissions', JSON.stringify(existing));
         return entry;
     }
 
@@ -80,7 +101,7 @@ class SrijanDB {
                 console.warn('Supabase Select Warning:', err);
             }
         }
-        return JSON.parse(localStorage.getItem('srijan_submissions') || '[]');
+        return JSON.parse(safeStorage.getItem('srijan_submissions') || '[]');
     }
 
     static async updateSubmissionStatus(id, newStatus) {
@@ -91,9 +112,9 @@ class SrijanDB {
                 console.warn('Supabase Update Warning:', err);
             }
         }
-        const items = JSON.parse(localStorage.getItem('srijan_submissions') || '[]');
+        const items = JSON.parse(safeStorage.getItem('srijan_submissions') || '[]');
         const updated = items.map(item => item.id === id ? { ...item, status: newStatus } : item);
-        localStorage.setItem('srijan_submissions', JSON.stringify(updated));
+        safeStorage.setItem('srijan_submissions', JSON.stringify(updated));
     }
 
     /* --- REVIEWER APPLICATIONS --- */
@@ -114,9 +135,9 @@ class SrijanDB {
             }
         }
 
-        const existing = JSON.parse(localStorage.getItem('srijan_reviewers') || '[]');
+        const existing = JSON.parse(safeStorage.getItem('srijan_reviewers') || '[]');
         existing.unshift(entry);
-        localStorage.setItem('srijan_reviewers', JSON.stringify(existing));
+        safeStorage.setItem('srijan_reviewers', JSON.stringify(existing));
         return entry;
     }
 
@@ -129,7 +150,7 @@ class SrijanDB {
                 console.warn('Supabase Select Warning:', err);
             }
         }
-        return JSON.parse(localStorage.getItem('srijan_reviewers') || '[]');
+        return JSON.parse(safeStorage.getItem('srijan_reviewers') || '[]');
     }
 
     static async updateReviewerStatus(id, newStatus) {
@@ -140,9 +161,9 @@ class SrijanDB {
                 console.warn('Supabase Update Warning:', err);
             }
         }
-        const items = JSON.parse(localStorage.getItem('srijan_reviewers') || '[]');
+        const items = JSON.parse(safeStorage.getItem('srijan_reviewers') || '[]');
         const updated = items.map(item => item.id === id ? { ...item, status: newStatus } : item);
-        localStorage.setItem('srijan_reviewers', JSON.stringify(updated));
+        safeStorage.setItem('srijan_reviewers', JSON.stringify(updated));
     }
 
     /* --- EDITORIAL CONTACTS --- */
@@ -163,9 +184,9 @@ class SrijanDB {
             }
         }
 
-        const existing = JSON.parse(localStorage.getItem('srijan_contacts') || '[]');
+        const existing = JSON.parse(safeStorage.getItem('srijan_contacts') || '[]');
         existing.unshift(entry);
-        localStorage.setItem('srijan_contacts', JSON.stringify(existing));
+        safeStorage.setItem('srijan_contacts', JSON.stringify(existing));
         return entry;
     }
 
@@ -178,7 +199,7 @@ class SrijanDB {
                 console.warn('Supabase Select Warning:', err);
             }
         }
-        return JSON.parse(localStorage.getItem('srijan_contacts') || '[]');
+        return JSON.parse(safeStorage.getItem('srijan_contacts') || '[]');
     }
 
     static async updateContactStatus(id, newStatus) {
@@ -189,8 +210,8 @@ class SrijanDB {
                 console.warn('Supabase Update Warning:', err);
             }
         }
-        const items = JSON.parse(localStorage.getItem('srijan_contacts') || '[]');
+        const items = JSON.parse(safeStorage.getItem('srijan_contacts') || '[]');
         const updated = items.map(item => item.id === id ? { ...item, status: newStatus } : item);
-        localStorage.setItem('srijan_contacts', JSON.stringify(updated));
+        safeStorage.setItem('srijan_contacts', JSON.stringify(updated));
     }
 }

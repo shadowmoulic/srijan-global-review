@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         contrastBtn.addEventListener('click', () => {
             body.classList.toggle('high-contrast');
             const isHighContrast = body.classList.contains('high-contrast');
-            contrastBtn.innerHTML = isHighContrast ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
-            if (typeof lucide !== 'undefined') lucide.createIcons({ root: contrastBtn });
+            contrastBtn.innerHTML = isHighContrast ? 
+                `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M22 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>` : 
+                `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
             showToast(isHighContrast ? 'High Contrast Mode Enabled' : 'Default Academic Theme Restored', 'info', 3000);
         });
     }
@@ -87,13 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
        HEADER & NAVIGATION
        ========================================================================== */
     const stickyHeader = document.getElementById('sticky-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            stickyHeader.style.boxShadow = 'var(--shadow-md)';
-        } else {
-            stickyHeader.style.boxShadow = 'var(--shadow-sm)';
-        }
-    });
+    if (stickyHeader) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                stickyHeader.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                stickyHeader.style.boxShadow = 'var(--shadow-sm)';
+            }
+        });
+    }
 
     // Mobile Menu Toggle
     const menuToggleBtn = document.getElementById('menu-toggle-btn');
@@ -104,8 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
             menuToggleBtn.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('active');
-            menuToggleBtn.innerHTML = isExpanded ? '<i data-lucide="menu"></i>' : '<i data-lucide="x"></i>';
-            if (typeof lucide !== 'undefined') lucide.createIcons({ root: menuToggleBtn });
+            menuToggleBtn.innerHTML = isExpanded ? 
+                `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg> <span class="menu-label">Menu</span>` : 
+                `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> <span class="menu-label">Close</span>`;
         });
 
         // Close menu when clicking a nav item on mobile
@@ -114,8 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (window.innerWidth <= 768) {
                     navMenu.classList.remove('active');
                     menuToggleBtn.setAttribute('aria-expanded', 'false');
-                    menuToggleBtn.innerHTML = '<i data-lucide="menu"></i>';
-                    if (typeof lucide !== 'undefined') lucide.createIcons({ root: menuToggleBtn });
+                    menuToggleBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg> <span class="menu-label">Menu</span>`;
                 }
             });
         });
@@ -293,14 +296,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = toggle.nextElementSibling;
             
             toggle.setAttribute('aria-expanded', !isExpanded);
-            if (!isExpanded) {
-                content.style.maxHeight = content.scrollHeight + 50 + "px";
-                content.style.paddingTop = "1rem";
-                content.style.paddingBottom = "1.5rem";
-            } else {
-                content.style.maxHeight = null;
-                content.style.paddingTop = "0";
-                content.style.paddingBottom = "0";
+            if (content) {
+                if (!isExpanded) {
+                    content.style.maxHeight = content.scrollHeight + 50 + "px";
+                    content.style.paddingTop = "1rem";
+                    content.style.paddingBottom = "1.5rem";
+                } else {
+                    content.style.maxHeight = null;
+                    content.style.paddingTop = "0";
+                    content.style.paddingBottom = "0";
+                }
             }
         });
     });
@@ -397,34 +402,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let matchCount = 0;
-        document.querySelectorAll('.article-card').forEach(card => {
-            const title = card.querySelector('.article-title').innerText.toLowerCase();
-            const authors = card.querySelector('.article-authors').innerText.toLowerCase();
-            const abstract = card.querySelector('.abstract-content').innerText.toLowerCase();
-
-            if (title.includes(query) || authors.includes(query) || abstract.includes(query)) {
-                card.style.display = 'block';
-                card.style.borderColor = 'var(--accent-gold)';
-                card.style.boxShadow = 'var(--shadow-gold)';
-                matchCount++;
-            } else {
-                card.style.display = 'none';
+        const isVolumePage = window.location.pathname.includes('volume-1-issue-1-2026');
+        if (isVolumePage) {
+            const localSearchInput = document.getElementById('toc-search-input');
+            if (localSearchInput) {
+                localSearchInput.value = query;
+                localSearchInput.dispatchEvent(new Event('input'));
+                const searchSec = document.getElementById('toc-search-input');
+                if (searchSec) searchSec.scrollIntoView({ behavior: 'smooth' });
             }
-        });
-
-        const issueSection = document.getElementById('current-issue');
-        if (issueSection) issueSection.scrollIntoView({ behavior: 'smooth' });
-
-        if (matchCount > 0) {
-            showToast(`Found ${matchCount} matching article(s) for "${query}"`, 'success');
         } else {
-            showToast(`No matches found for "${query}". Showing all articles.`, 'warning');
-            document.querySelectorAll('.article-card').forEach(card => {
-                card.style.display = 'block';
-                card.style.borderColor = 'var(--border-color)';
-                card.style.boxShadow = 'var(--shadow-sm)';
-            });
+            const headerEl = document.querySelector('srijan-header');
+            const basePath = headerEl ? (headerEl.getAttribute('base-path') || './') : './';
+            window.location.href = `${basePath}volume-1-issue-1-2026/index.html?search=${encodeURIComponent(query)}`;
         }
     }
 

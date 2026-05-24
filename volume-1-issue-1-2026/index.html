@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volume 1 • Issue 1 (April 2026) | Table of Contents | SRIJAN Journal</title>
+    <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
     <meta name="description" content="Inaugural Volume 1 Issue 1 (April 2026) of SRIJAN: Global Review of Arts, Science & Humanities. Featuring research on Taare Zameen Par, Romanticism in Kylas Chunder Dutt, Disney's Moana, Robinson Crusoe, and Jane Austen.">
     <meta name="keywords" content="SRIJAN, Volume 1 Issue 1, Open Access, Table of Contents, Peer-Reviewed, Articles, Research, Humanities, Science, Literature, ISSN">
     <meta name="author" content="SRIJANTIRTHA">
@@ -628,6 +629,17 @@
                     searchInput.value = '';
                     filterArticles();
                 });
+            }
+
+            // Check for search query parameter in URL on page load
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
+            if (searchParam && searchInput) {
+                searchInput.value = searchParam;
+                filterArticles();
+                setTimeout(() => {
+                    searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
             }
         });
     </script>

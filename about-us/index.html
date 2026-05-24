@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Journal | SRIJAN: Global Review of Arts, Science & Humanities</title>
+    <meta name="description" content="Overview, charter, and registries of SRIJAN: Global Review of Arts, Science & Humanities, a peer-reviewed open access international journal.">
+    <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.435.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Web Components -->
+    <script src="../components.js"></script>
+</head>
+<body class="academic-theme">
+
+    <srijan-header base-path="../" active-page="about"></srijan-header>
+
+    <main role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">About the Journal</h1>
+                <p class="page-subtitle">Overview & Charter of SRIJAN: Global Review of Arts, Science & Humanities</p>
+            </div>
+        </section>
+
+        <section class="section about-section bg-light">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text-column">
+                        <h3 class="about-lead">Fostering Excellence in Cross-Disciplinary Discourse</h3>
+                        <p><strong>SRIJAN: Global Review of Arts, Science & Humanities</strong> is a premier international, double-blind peer-reviewed open access journal established to bridge the traditional divide between humanistic inquiry and empirical sciences.</p>
+                        <p>Our mandate is to publish cutting-edge theoretical investigations, rigorous qualitative and quantitative studies, and high-impact critical reviews that address contemporary intellectual and societal challenges. All publications adhere to the strict ethical guidelines laid out by COPE (Committee on Publication Ethics).</p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>Zero Article Processing Charges (APC):</strong> Committed to equitable publishing through Diamond Open Access sponsorship by SRIJANTIRTHA.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i data-lucide="check-circle-2"></i>
+                                <span><strong>Global Reach:</strong> Indexed metadata distribution and digital object identifiers (DOI) assigned to every published manuscript.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-metadata-box">
+                        <div class="box-title-bar">
+                            <i data-lucide="file-check"></i>
+                            <h4>Journal Metadata & Details</h4>
+                        </div>
+                        <ul class="metadata-list">
+                            <li>
+                                <span class="meta-label"><i data-lucide="building"></i> Publisher:</span>
+                                <span class="meta-val">SRIJANTIRTHA (Reg No. IV-1901-00880/2025)</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="calendar-clock"></i> Starting Year:</span>
+                                <span class="meta-val">2026</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="repeat"></i> Frequency:</span>
+                                <span class="meta-val">Bi-Annual in April & October</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="laptop"></i> Publication Format:</span>
+                                <span class="meta-val">Online / Open Access</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="globe-2"></i> Publication Language:</span>
+                                <span class="meta-val">English</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="gavel"></i> Peer Review Model:</span>
+                                <span class="meta-val">Double-Blind Peer Review</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="layers"></i> Subject Areas:</span>
+                                <span class="meta-val">Arts, Science, Humanities, Social Sciences, & Interdisciplinary Studies</span>
+                            </li>
+                            <li>
+                                <span class="meta-label"><i data-lucide="copyright"></i> License:</span>
+                                <span class="meta-val">Creative Commons (CC BY 4.0)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SUBMIT PAPER CTA BANNER -->
+        <section class="section cta-section" style="background-color: var(--primary-navy); color: white; padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.25rem; font-family: var(--font-heading); margin-bottom: 1rem; color: white;">Ready to Publish Your Next Breakthrough?</h2>
+                <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); max-width: 700px; margin: 0 auto 2rem;">SRIJAN welcomes rigorous empirical studies, theoretical reviews, and critical humanistic essays. Enjoy 100% Diamond Open Access with zero publication fees.</p>
+                <button class="btn btn-lg" id="scope-submit-btn" style="background-color: var(--accent-gold); color: var(--primary-navy); font-weight: 700; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="upload-cloud"></i> Submit Your Manuscript Online
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <srijan-footer base-path="../"></srijan-footer>
+    <srijan-modals></srijan-modals>
+
+    <!-- Database & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../app.js"></script>
+</body>
+</html>

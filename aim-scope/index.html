@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aim & Scope | SRIJAN Journal</title>
+    <meta name="description" content="Subject coverage matrix and research scope of SRIJAN: Global Review of Arts, Science & Humanities.">
+    <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.435.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Web Components -->
+    <script src="../components.js"></script>
+</head>
+<body class="academic-theme">
+
+    <srijan-header base-path="../" active-page="scope"></srijan-header>
+
+    <main role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Aim & Scope</h1>
+                <p class="page-subtitle">Standardized subject discipline matrices and interdisciplinary frameworks of SRIJAN</p>
+            </div>
+        </section>
+
+        <section class="section scope-section bg-light">
+            <div class="container">
+                <div class="scope-grid">
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="book-open-check"></i></div>
+                        <h3 class="scope-name">Literature</h3>
+                        <p class="scope-desc">Comparative literature, post-colonial theory, literary criticism, digital humanities, and contemporary poetics.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="message-square"></i></div>
+                        <h3 class="scope-name">Linguistics</h3>
+                        <p class="scope-desc">Applied linguistics, sociolinguistics, cognitive semantics, computational grammar, and language preservation.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="compass"></i></div>
+                        <h3 class="scope-name">Philosophy</h3>
+                        <p class="scope-desc">Epistemology, moral philosophy, bioethics, philosophy of science, phenomenology, and eastern philosophical systems.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="users-2"></i></div>
+                        <h3 class="scope-name">Sociology</h3>
+                        <p class="scope-desc">Social stratification, urbanization, demographic dynamics, cultural anthropology, and technology studies.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="brain"></i></div>
+                        <h3 class="scope-name">Psychology</h3>
+                        <p class="scope-desc">Cognitive behavioral sciences, neuro-psychology, organizational behavior, developmental psychology, and clinical studies.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="graduation-cap"></i></div>
+                        <h3 class="scope-name">Education</h3>
+                        <p class="scope-desc">Pedagogical innovation, educational psychology, ed-tech evaluation, curriculum theory, and inclusive education policy.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="music-4"></i></div>
+                        <h3 class="scope-name">Theatre & Performance</h3>
+                        <p class="scope-desc">Dramaturgy, ethnomusicology, performative arts, visual aesthetics, cinematic studies, and history of performative traditions.</p>
+                    </div>
+                    <div class="scope-card">
+                        <div class="card-icon"><i data-lucide="network"></i></div>
+                        <h3 class="scope-name">Interdisciplinary Research</h3>
+                        <p class="scope-desc">Interface of AI and ethics, environmental humanities, medical anthropology, science & technology studies (STS).</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- SUBMIT PAPER CTA BANNER -->
+        <section class="section cta-section" style="background-color: var(--primary-navy); color: white; padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <h2 style="font-size: 2.25rem; font-family: var(--font-heading); margin-bottom: 1rem; color: white;">Ready to Publish Your Next Breakthrough?</h2>
+                <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); max-width: 700px; margin: 0 auto 2rem;">SRIJAN welcomes rigorous empirical studies, theoretical reviews, and critical humanistic essays. Enjoy 100% Diamond Open Access with zero publication fees.</p>
+                <button class="btn btn-lg" id="scope-submit-btn" style="background-color: var(--accent-gold); color: var(--primary-navy); font-weight: 700; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i data-lucide="upload-cloud"></i> Submit Your Manuscript Online
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <srijan-footer base-path="../"></srijan-footer>
+    <srijan-modals></srijan-modals>
+
+    <!-- Database & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../app.js"></script>
+</body>
+</html>

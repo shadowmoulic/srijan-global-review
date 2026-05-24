@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SRIJAN Journal</title>
+    <meta name="description" content="Contact the editorial office of SRIJAN: Global Review of Arts, Science & Humanities. Submit inquiries about submissions, indexing, or reviewer opportunities.">
+    <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.435.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Web Components -->
+    <script src="../components.js"></script>
+</head>
+<body class="academic-theme">
+
+    <srijan-header base-path="../" active-page="contact"></srijan-header>
+
+    <main role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Contact Editorial Office</h1>
+                <p class="page-subtitle">For submission queries, indexing verification, or institutional partnerships</p>
+            </div>
+        </section>
+
+        <section class="section contact-section bg-light">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info-column">
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <h4>Editorial Headquarters</h4>
+                                <p>Main Office: Betai, Nadia 741163, West Bengal, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="building"></i></div>
+                            <div>
+                                <h4>City Administrative Office</h4>
+                                <p>Flat No. B1, B2/236, Kalyani 741235, West Bengal, India</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="phone"></i></div>
+                            <div>
+                                <h4>Official Inquiries & Phone</h4>
+                                <p>+91 90623 85173 / +91 89105 54624 / +91 86176 28810</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="mail"></i></div>
+                            <div>
+                                <h4>Official E-Mails</h4>
+                                <p><strong>Submissions:</strong> srijan.globalreview@gmail.com<br><strong>Publisher:</strong> contact@srijantirtha.in</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="c-icon"><i data-lucide="file-check"></i></div>
+                            <div>
+                                <h4>Publisher Registration</h4>
+                                <p>SRIJANTIRTHA Reg No: IV-1901-00880/2025 | PAN: ABMTS9991H</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-column">
+                        <div class="form-container">
+                            <h3>Send an Official Message</h3>
+                            <form id="editorial-contact-form">
+                                <div class="form-group">
+                                    <label for="c-name">Full Name *</label>
+                                    <input type="text" id="c-name" required placeholder="Prof. / Dr. / Scholar Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-email">Institutional Email *</label>
+                                    <input type="email" id="c-email" required placeholder="name@institution.edu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-subject">Subject Category *</label>
+                                    <select id="c-subject" required>
+                                        <option value="">-- Select Category --</option>
+                                        <option value="Submission">Manuscript Submission Query</option>
+                                        <option value="Reviewer">Reviewer Application Query</option>
+                                        <option value="Special">Special Issue Proposal</option>
+                                        <option value="General">General Editorial Inquiry</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-msg">Message *</label>
+                                    <textarea id="c-msg" rows="5" required placeholder="Elaborate your query clearly..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full"><i data-lucide="send"></i> Transmit Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <srijan-footer base-path="../"></srijan-footer>
+    <srijan-modals></srijan-modals>
+
+    <!-- Database & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase-config.js"></script>
+    <script src="../app.js"></script>
+</body>
+</html>

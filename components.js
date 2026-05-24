@@ -8,15 +8,18 @@ class SrijanHeader extends HTMLElement {
         const basePath = this.getAttribute('base-path') || './';
         const activePage = this.getAttribute('active-page') || 'home';
 
-        const getNavLink = (anchor) => {
-            if (basePath === './' || basePath === '') {
-                return anchor;
+        const getNavLink = (page) => {
+            if (page.startsWith('#')) {
+                if (basePath === './' || basePath === '') {
+                    return page;
+                }
+                return `${basePath}index.html${page}`;
             }
-            return `${basePath}index.html${anchor}`;
+            return `${basePath}${page}`;
         };
 
         const isActive = (page) => activePage === page ? ' active' : '';
-        const logoPath = basePath === './' ? 'assets/logo.png' : `${basePath}assets/logo.png`;
+        const logoPath = 'https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png';
 
         this.innerHTML = `
             <!-- Top Accessibility & Institutional Bar -->
@@ -32,7 +35,7 @@ class SrijanHeader extends HTMLElement {
                             <button class="font-btn" id="font-decrease" title="Decrease font size" aria-label="Decrease font size">A-</button>
                             <button class="font-btn active" id="font-default" title="Default font size" aria-label="Default font size">A</button>
                             <button class="font-btn" id="font-increase" title="Increase font size" aria-label="Increase font size">A+</button>
-                            <button class="contrast-btn" id="contrast-toggle" title="Toggle High Contrast" aria-label="Toggle High Contrast"><i data-lucide="moon"></i></button>
+                            <button class="contrast-btn" id="contrast-toggle" title="Toggle High Contrast" aria-label="Toggle High Contrast"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -41,7 +44,7 @@ class SrijanHeader extends HTMLElement {
             <!-- Main Banner Section -->
             <div class="journal-banner">
                 <div class="container banner-container">
-                    <a href="${getNavLink('#home')}" class="banner-brand">
+                    <a href="${getNavLink('')}" class="banner-brand">
                         <img src="${logoPath}" alt="SRIJAN Journal Logo" class="banner-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
                         <div class="banner-titles">
                             <div class="banner-title-wrapper">
@@ -69,30 +72,30 @@ class SrijanHeader extends HTMLElement {
                 <div class="container nav-container">
                     <nav class="main-nav" role="navigation" aria-label="Main Navigation">
                         <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" id="menu-toggle-btn">
-                            <i data-lucide="menu"></i> <span class="menu-label">Menu</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg> <span class="menu-label">Menu</span>
                         </button>
                         <ul class="nav-list" id="nav-menu">
-                            <li><a href="${getNavLink('#home')}" class="nav-link${isActive('home')}">Home</a></li>
-                            <li><a href="${getNavLink('#about')}" class="nav-link${isActive('about')}">About Us</a></li>
-                            <li><a href="${getNavLink('#scope')}" class="nav-link${isActive('scope')}">Aim & Scope</a></li>
+                            <li><a href="${getNavLink('')}" class="nav-link${isActive('home')}">Home</a></li>
+                            <li><a href="${getNavLink('about-us/')}" class="nav-link${isActive('about')}">About Us</a></li>
+                            <li><a href="${getNavLink('aim-scope/')}" class="nav-link${isActive('scope')}">Aim & Scope</a></li>
                             <li class="dropdown">
-                                <a href="${getNavLink('#editorial')}" class="nav-link dropdown-toggle${isActive('editorial')}">Editorial Board <i data-lucide="chevron-down" class="nav-chevron"></i></a>
+                                <a href="${getNavLink('editorial-board/')}" class="nav-link dropdown-toggle${isActive('editorial')}">Editorial Board <i data-lucide="chevron-down" class="nav-chevron"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="${getNavLink('#editorial')}">Executive Board</a></li>
-                                    <li><a href="${getNavLink('#international-advisory')}">International Advisory</a></li>
+                                    <li><a href="${getNavLink('editorial-board/#editorial')}">Executive Board</a></li>
+                                    <li><a href="${getNavLink('editorial-board/#international-advisory')}">International Advisory</a></li>
                                 </ul>
                             </li>
-                            <li><a href="${getNavLink('#current-issue')}" class="nav-link${isActive('current-issue')}">Current Issue</a></li>
+                            <li><a href="${getNavLink('volume-1-issue-1-2026/')}" class="nav-link${isActive('current-issue')}">Current Issue</a></li>
                             <li><a href="${getNavLink('#archives')}" class="nav-link${isActive('archives')}">Archives</a></li>
                             <li class="dropdown">
-                                <a href="${getNavLink('#guidelines')}" class="nav-link dropdown-toggle${isActive('guidelines')}">For Authors <i data-lucide="chevron-down" class="nav-chevron"></i></a>
+                                <a href="${getNavLink('author-guidelines/')}" class="nav-link dropdown-toggle${isActive('guidelines')}">For Authors <i data-lucide="chevron-down" class="nav-chevron"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="${getNavLink('#guidelines')}">Author Guidelines</a></li>
-                                    <li><a href="${getNavLink('#peer-review')}">Peer Review Policy</a></li>
-                                    <li><a href="${getNavLink('#ethics')}">Publication Ethics</a></li>
+                                    <li><a href="${getNavLink('author-guidelines/')}">Author Guidelines</a></li>
+                                    <li><a href="${getNavLink('peer-review-policy/')}">Peer Review Policy</a></li>
+                                    <li><a href="${getNavLink('publication-ethics/')}">Publication Ethics</a></li>
                                 </ul>
                             </li>
-                            <li><a href="${getNavLink('#contact')}" class="nav-link${isActive('contact')}">Contact Us</a></li>
+                            <li><a href="${getNavLink('contact-us/')}" class="nav-link${isActive('contact')}">Contact Us</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -108,14 +111,17 @@ class SrijanHeader extends HTMLElement {
 class SrijanFooter extends HTMLElement {
     connectedCallback() {
         const basePath = this.getAttribute('base-path') || './';
-        const logoPath = basePath === './' ? 'assets/logo.png' : `${basePath}assets/logo.png`;
+        const logoPath = 'https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png';
         const prefix = basePath === './' ? '' : basePath;
 
-        const getNavLink = (anchor) => {
-            if (basePath === './' || basePath === '') {
-                return anchor;
+        const getNavLink = (page) => {
+            if (page.startsWith('#')) {
+                if (basePath === './' || basePath === '') {
+                    return page;
+                }
+                return `${basePath}index.html${page}`;
             }
-            return `${basePath}index.html${anchor}`;
+            return `${basePath}${page}`;
         };
 
         this.innerHTML = `
@@ -137,10 +143,10 @@ class SrijanFooter extends HTMLElement {
                         <div class="footer-col nav-col">
                             <h3>Quick Links</h3>
                             <ul>
-                                <li><a href="${getNavLink('#home')}"><i data-lucide="chevron-right"></i> Home</a></li>
-                                <li><a href="${getNavLink('#about')}"><i data-lucide="chevron-right"></i> About Journal</a></li>
-                                <li><a href="${getNavLink('#editorial')}"><i data-lucide="chevron-right"></i> Editorial Board</a></li>
-                                <li><a href="${getNavLink('#current-issue')}"><i data-lucide="chevron-right"></i> Current Issue</a></li>
+                                <li><a href="${getNavLink('')}"><i data-lucide="chevron-right"></i> Home</a></li>
+                                <li><a href="${getNavLink('about-us/')}"><i data-lucide="chevron-right"></i> About Journal</a></li>
+                                <li><a href="${getNavLink('editorial-board/')}"><i data-lucide="chevron-right"></i> Editorial Board</a></li>
+                                <li><a href="${getNavLink('volume-1-issue-1-2026/')}"><i data-lucide="chevron-right"></i> Current Issue</a></li>
                                 <li><a href="${getNavLink('#archives')}"><i data-lucide="chevron-right"></i> Archives</a></li>
                             </ul>
                         </div>
@@ -148,9 +154,9 @@ class SrijanFooter extends HTMLElement {
                         <div class="footer-col nav-col">
                             <h3>Editorial Policies</h3>
                             <ul>
-                                <li><a href="${getNavLink('#guidelines')}"><i data-lucide="chevron-right"></i> Author Guidelines</a></li>
-                                <li><a href="${getNavLink('#peer-review')}"><i data-lucide="chevron-right"></i> Peer Review Policy</a></li>
-                                <li><a href="${getNavLink('#ethics')}"><i data-lucide="chevron-right"></i> Publication Ethics</a></li>
+                                <li><a href="${getNavLink('author-guidelines/')}"><i data-lucide="chevron-right"></i> Author Guidelines</a></li>
+                                <li><a href="${getNavLink('peer-review-policy/')}"><i data-lucide="chevron-right"></i> Peer Review Policy</a></li>
+                                <li><a href="${getNavLink('publication-ethics/')}"><i data-lucide="chevron-right"></i> Publication Ethics</a></li>
                                 <li><a href="javascript:void(0)" id="footer-join-btn"><i data-lucide="chevron-right"></i> Join as Reviewer</a></li>
                                 <li><a href="${getNavLink('#indexing')}"><i data-lucide="chevron-right"></i> Indexing Status</a></li>
                             </ul>
@@ -173,11 +179,11 @@ class SrijanFooter extends HTMLElement {
                             <p>&copy; 2026 SRIJANTIRTHA. All rights reserved. Articles published under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="license-link">Creative Commons Attribution 4.0 International (CC BY 4.0) License</a>.</p>
                         </div>
                         <div class="footer-legal-links">
-                            <a href="${prefix}privacy-policy/">Privacy Policy</a>
+                            <a href="${getNavLink('privacy-policy/')}">Privacy Policy</a>
                             <span>•</span>
-                            <a href="${prefix}terms-of-submission/">Terms of Submission</a>
+                            <a href="${getNavLink('terms-of-submission/')}">Terms of Submission</a>
                             <span>•</span>
-                            <a href="${prefix}disclaimer/">Disclaimer</a>
+                            <a href="${getNavLink('disclaimer/')}">Disclaimer</a>
                         </div>
                     </div>
                 </div>
