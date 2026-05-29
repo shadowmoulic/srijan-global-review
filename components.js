@@ -131,9 +131,9 @@ class SrijanFooter extends HTMLElement {
                         <div class="footer-col brand-col">
                             <div class="footer-logo">
                                 <img src="${logoPath}" alt="SRIJAN Journal Logo" class="footer-journal-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
-                                <h2>SRIJAN</h2>
+                                <h2 style="font-size:1.2rem;">SRIJAN: Global Review of Arts, Science & Humanities</h2>
                             </div>
-                            <p class="footer-desc">Global Review of Arts, Science & Humanities is an international peer-reviewed academic journal published bi-annually under the auspices of SRIJANTIRTHA.</p>
+                            <p class="footer-desc">An international peer-reviewed academic journal published bi-annually under the auspices of SRIJANTIRTHA.</p>
                             <div class="oa-badge-footer">
                                 <i data-lucide="unlock"></i>
                                 <span>Fully Open Access • Zero Submission Charges</span>
