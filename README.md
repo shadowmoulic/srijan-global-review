@@ -1,7 +1,7 @@
 # SRIJAN: Global Review of Arts, Science & Humanities
 
 <div align="center">
-  <img src="assets/logo.png" alt="SRIJAN Journal Logo" width="180"/>
+  <img src="assets/logo.png" alt="SRIJAN: Global Review of Arts, Science & Humanities Logo" width="180"/>
   <h3>International Peer-Reviewed Open Access Journal</h3>
   <p><b>ISSN (Online): Applied For • Published by SRIJANTIRTHA Publisher</b></p>
 </div>
@@ -10,7 +10,7 @@
 
 ## 📖 Overview
 
-**SRIJAN** is an esteemed international, bi-annual academic journal dedicated to fostering multidisciplinary dialogue across Arts, Science, Humanities, and Interdisciplinary Studies. Operating on a **100% Diamond Open Access** model, SRIJAN ensures that world-class research is freely accessible to scholars, educators, and the global public without paywalls or publishing fees.
+**SRIJAN: Global Review of Arts, Science & Humanities** is an esteemed international, bi-annual academic journal dedicated to fostering multidisciplinary dialogue across Arts, Science, Humanities, and Interdisciplinary Studies. Operating on a **100% Diamond Open Access** model, SRIJAN: Global Review of Arts, Science & Humanities ensures that world-class research is freely accessible to scholars, educators, and the global public without paywalls or publishing fees.
 
 ## ✨ Key Highlights
 
@@ -65,7 +65,7 @@ Fully functional modal systems allowing aspiring authors and reviewers to submit
 
 ## 📜 Editorial Policies & Governance
 
-SRIJAN strictly adheres to the ethical guidelines set forth by the **Committee on Publication Ethics (COPE)**. All submissions undergo automated plagiarism verification prior to entering the review pipeline. For detailed policy frameworks, refer to our dedicated legal pages:
+SRIJAN: Global Review of Arts, Science & Humanities strictly adheres to the ethical guidelines set forth by the **Committee on Publication Ethics (COPE)**. All submissions undergo automated plagiarism verification prior to entering the review pipeline. For detailed policy frameworks, refer to our dedicated legal pages:
 - [Privacy Policy](./privacy-policy/index.html)
 - [Terms of Submission](./terms-of-submission/index.html)
 - [Disclaimer](./disclaimer/index.html)

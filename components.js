@@ -1,5 +1,5 @@
 /**
- * SRIJAN Journal Web Components
+ * SRIJAN: Global Review of Arts, Science & Humanities Web Components
  * Encapsulates the global header, banner, top bar, footer, and modal dialogues across all pages.
  */
 
@@ -45,7 +45,7 @@ class SrijanHeader extends HTMLElement {
             <div class="journal-banner">
                 <div class="container banner-container">
                     <a href="${getNavLink('')}" class="banner-brand">
-                        <img src="${logoPath}" alt="SRIJAN Journal Logo" class="banner-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
+                        <img src="${logoPath}" alt="SRIJAN: Global Review of Arts, Science & Humanities Logo" class="banner-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
                         <div class="banner-titles">
                             <div class="banner-title-wrapper">
                                 <h1 class="banner-title">SRIJAN</h1>
@@ -130,7 +130,7 @@ class SrijanFooter extends HTMLElement {
                     <div class="container footer-grid">
                         <div class="footer-col brand-col">
                             <div class="footer-logo">
-                                <img src="${logoPath}" alt="SRIJAN Journal Logo" class="footer-journal-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
+                                <img src="${logoPath}" alt="SRIJAN: Global Review of Arts, Science & Humanities Logo" class="footer-journal-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
                                 <h2 style="font-size:1.2rem;">SRIJAN: Global Review of Arts, Science & Humanities</h2>
                             </div>
                             <p class="footer-desc">An international peer-reviewed academic journal published bi-annually under the auspices of SRIJANTIRTHA.</p>
@@ -271,7 +271,7 @@ class SrijanModals extends HTMLElement {
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" id="sub-ethics" required>
-                                <label for="sub-ethics">I certify that this paper is my original work, has not been published elsewhere, and complies with SRIJAN's publication ethics.</label>
+                                <label for="sub-ethics">I certify that this paper is my original work, has not been published elsewhere, and complies with the publication ethics of SRIJAN: Global Review of Arts, Science & Humanities.</label>
                             </div>
                             <div class="modal-footer-actions">
                                 <button type="button" class="btn btn-outline modal-cancel">Cancel</button>
@@ -291,7 +291,7 @@ class SrijanModals extends HTMLElement {
                         <button class="modal-close" aria-label="Close modal"><i data-lucide="x"></i></button>
                     </div>
                     <div class="modal-body">
-                        <p class="modal-desc">SRIJAN invites seasoned academics holding a PhD or equivalent distinguished professorship to join our international panel of reviewers.</p>
+                        <p class="modal-desc">SRIJAN: Global Review of Arts, Science & Humanities invites seasoned academics holding a PhD or equivalent distinguished professorship to join our international panel of reviewers.</p>
                         <form id="reviewer-apply-form">
                             <div class="form-row">
                                 <div class="form-group">

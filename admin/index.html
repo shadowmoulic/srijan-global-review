@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Admin Portal | SRIJAN Journal</title>
+    <title>Executive Admin Portal | SRIJAN: Global Review of Arts, Science & Humanities</title>
     <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
-    <meta name="description" content="Secure Executive Board Administration Portal for SRIJAN Journal.">
+    <meta name="description"
+        content="Secure Executive Board Administration Portal for SRIJAN: Global Review of Arts, Science & Humanities.">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="../lucide.min.js"></script>
@@ -29,19 +32,29 @@
     <!-- Gatephrase Security Overlay -->
     <div id="gatephrase-modal" class="modal gatephrase-modal" role="dialog" aria-modal="true">
         <div class="modal-overlay" style="background-color: #0B2545; backdrop-filter: blur(12px);"></div>
-        <div class="modal-container" style="max-width: 480px; text-align: center; padding: 3rem 2.5rem; background: #fff; border-radius: var(--radius-lg); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); border: 2px solid var(--accent-gold);">
-            <div style="width: 72px; height: 72px; background: rgba(197, 160, 89, 0.15); color: #C5A059; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">
+        <div class="modal-container"
+            style="max-width: 480px; text-align: center; padding: 3rem 2.5rem; background: #fff; border-radius: var(--radius-lg); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); border: 2px solid var(--accent-gold);">
+            <div
+                style="width: 72px; height: 72px; background: rgba(197, 160, 89, 0.15); color: #C5A059; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.5rem;">
                 <i data-lucide="lock"></i>
             </div>
-            <h3 style="font-family: var(--font-heading); font-size: 1.85rem; color: var(--primary-navy); margin: 0 0 0.5rem 0;">Executive Board Access</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem;">Please input the authorized institutional gatephrase to unlock the administrative console.</p>
+            <h3
+                style="font-family: var(--font-heading); font-size: 1.85rem; color: var(--primary-navy); margin: 0 0 0.5rem 0;">
+                Executive Board Access</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem;">Please input the
+                authorized institutional gatephrase to unlock the administrative console.</p>
             <form id="gatephrase-form" style="display: flex; flex-direction: column; gap: 1rem;">
-                <input type="password" id="gatephrase-input" required placeholder="Enter Gatephrase..." style="padding: 0.85rem 1.25rem; font-size: 1.1rem; border: 2px solid var(--border-color); border-radius: var(--radius-sm); outline: none; text-align: center; letter-spacing: 0.1em; transition: border-color var(--transition-fast);">
-                <div id="gate-error" style="color: #e53e3e; font-size: 0.85rem; font-weight: 600; display: none;">Invalid gatephrase. Access denied.</div>
-                <button type="submit" class="btn btn-primary btn-full" style="padding: 0.85rem; font-size: 1.1rem; font-weight: 700; margin-top: 0.5rem;"><i data-lucide="key"></i> Authenticate Session</button>
+                <input type="password" id="gatephrase-input" required placeholder="Enter Gatephrase..."
+                    style="padding: 0.85rem 1.25rem; font-size: 1.1rem; border: 2px solid var(--border-color); border-radius: var(--radius-sm); outline: none; text-align: center; letter-spacing: 0.1em; transition: border-color var(--transition-fast);">
+                <div id="gate-error" style="color: #e53e3e; font-size: 0.85rem; font-weight: 600; display: none;">
+                    Invalid gatephrase. Access denied.</div>
+                <button type="submit" class="btn btn-primary btn-full"
+                    style="padding: 0.85rem; font-size: 1.1rem; font-weight: 700; margin-top: 0.5rem;"><i
+                        data-lucide="key"></i> Authenticate Session</button>
             </form>
             <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
-                <a href="../index.html" style="color: var(--primary-navy); text-decoration: underline;">Return to Public Journal Website</a>
+                <a href="../index.html" style="color: var(--primary-navy); text-decoration: underline;">Return to Public
+                    Journal Website</a>
             </div>
         </div>
     </div>
@@ -62,7 +75,8 @@
                     <span class="status-dot"></span>
                     <span class="status-text">Connecting Supabase...</span>
                 </div>
-                <a href="../index.html" class="btn btn-outline-admin"><i data-lucide="external-link"></i> Live Website</a>
+                <a href="../index.html" class="btn btn-outline-admin"><i data-lucide="external-link"></i> Live
+                    Website</a>
             </div>
         </div>
     </header>
@@ -136,7 +150,10 @@
                         </tr>
                     </thead>
                     <tbody id="sub-tbody">
-                        <tr><td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading submissions...</td></tr>
+                        <tr>
+                            <td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading
+                                submissions...</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -165,7 +182,10 @@
                         </tr>
                     </thead>
                     <tbody id="rev-tbody">
-                        <tr><td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading reviewers...</td></tr>
+                        <tr>
+                            <td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading
+                                reviewers...</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -194,7 +214,10 @@
                         </tr>
                     </thead>
                     <tbody id="msg-tbody">
-                        <tr><td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading messages...</td></tr>
+                        <tr>
+                            <td colspan="7" class="loading-td"><i data-lucide="loader-2" class="spin"></i> Loading
+                                messages...</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -213,7 +236,8 @@
                 <!-- Content injected dynamically -->
             </div>
             <div class="modal-footer-actions">
-                <button type="button" class="btn btn-primary modal-close-action"><i data-lucide="check"></i> Done Viewing</button>
+                <button type="button" class="btn btn-primary modal-close-action"><i data-lucide="check"></i> Done
+                    Viewing</button>
             </div>
         </div>
     </div>

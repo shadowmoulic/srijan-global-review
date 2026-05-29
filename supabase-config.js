@@ -1,5 +1,5 @@
 /**
- * SRIJAN Journal Database & Supabase Connector
+ * SRIJAN: Global Review of Arts, Science & Humanities Database & Supabase Connector
  * Handles seamless persistence across LocalStorage (default demo mode) and Supabase Cloud.
  */
 

@@ -1,5 +1,5 @@
 /**
- * SRIJAN Journal Website Logic
+ * SRIJAN: Global Review of Arts, Science & Humanities Website Logic
  * Handles interactive components, accessibility features, modal dialogues, and form validations.
  */
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
-        
+
         let iconName = 'info';
         if (type === 'success') iconName = 'check-circle';
         if (type === 'warning') iconName = 'alert-triangle';
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
         contrastBtn.addEventListener('click', () => {
             body.classList.toggle('high-contrast');
             const isHighContrast = body.classList.contains('high-contrast');
-            contrastBtn.innerHTML = isHighContrast ? 
-                `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M22 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>` : 
+            contrastBtn.innerHTML = isHighContrast ?
+                `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M22 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>` :
                 `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
             showToast(isHighContrast ? 'High Contrast Mode Enabled' : 'Default Academic Theme Restored', 'info', 3000);
         });
@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
             menuToggleBtn.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('active');
-            menuToggleBtn.innerHTML = isExpanded ? 
-                `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg> <span class="menu-label">Menu</span>` : 
+            menuToggleBtn.innerHTML = isExpanded ?
+                `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg> <span class="menu-label">Menu</span>` :
                 `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> <span class="menu-label">Close</span>`;
         });
 
@@ -237,11 +237,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = fileInput && fileInput.files[0] ? fileInput.files[0].name : 'manuscript.docx';
 
             const saved = await SrijanDB.saveSubmission({ author: fname, email, institution: affil, title, domain, type, abstract, file });
-            
+
             closeModal(submitModal);
             paperSubmitForm.reset();
             if (selectedFileNameDisplay) selectedFileNameDisplay.innerHTML = '';
-            
+
             showToast(`Manuscript "${title.substring(0, 35)}..." transmitted securely to Supabase. Tracking ID: ${saved.id}`, 'success', 8000);
         });
     }
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cv = cvInput && cvInput.files[0] ? cvInput.files[0].name : 'curriculum_vitae.pdf';
 
             const saved = await SrijanDB.saveReviewer({ name, email, institution: inst, country, expertise, link, cv });
-            
+
             closeModal(reviewerModal);
             reviewerApplyForm.reset();
             if (selectedCvNameDisplay) selectedCvNameDisplay.innerHTML = '';
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('c-msg')?.value || '';
 
             const saved = await SrijanDB.saveContact({ name, email, subject, message });
-            
+
             editorialContactForm.reset();
             showToast(`Official message from ${name} (${saved.id}) logged in Supabase. Our editorial assistant will respond within 48 hours.`, 'success', 6000);
         });
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggle.addEventListener('click', () => {
             const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
             const content = toggle.nextElementSibling;
-            
+
             toggle.setAttribute('aria-expanded', !isExpanded);
             if (content) {
                 if (!isExpanded) {
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     guideTabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetTab = btn.getAttribute('data-tab');
-            
+
             guideTabBtns.forEach(b => b.classList.remove('active'));
             tabContents.forEach(c => c.classList.remove('active'));
 
