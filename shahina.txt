@@ -1,0 +1,53 @@
+SHAHINA
+Experimental Nuclear Astrophysicist
+
+Postdoctoral Research Associate, Plasma Science and Fusion Center, Massachusetts Institute of Technology
+
+shahina@psfc.mit.edu — +1(574)386-5699 — Cambridge, MA 02139
+
+ACADEMIC APPOINTMENTS
+Massachusetts Institute of Technology, Plasma Science and Fusion Center Jan. 2025–Present
+Postdoctoral Research Associate
+High-energy-density plasma physics, fusion diagnostics, and nuclear cross-section measurements.
+University of Notre Dame, Department of Physics and Astronomy Aug. 2018–Apr. 2024
+Graduate Research Assistant
+EDUCATION
+University of Notre Dame, Notre Dame, IN 2018–2024
+Ph.D., Physics and Astronomy
+Dissertation: Stellar neutron sources for the s-process nucleosynthesis
+Advisor: Prof. Michael Wiescher
+University of Notre Dame, Notre Dame, IN 2018–2020
+M.S., Physics and Astronomy
+Indian Institute of Science Education and Research (IISER) Mohali, India 2017–2018
+M.S., Physics
+Thesis: Air-shower Multi-Mesh Proportional Counter
+Advisor: Prof. Satyajit Jena
+Indian Institute of Science Education and Research (IISER) Mohali, India 2013–2017
+B.S., Physics
+RESEARCH INTERESTS
+My research interests lie in low-energy nuclear physics, high-energy-density plasma physics, detector development,
+and computational analysis to measure nuclear reactions that govern stellar evolution and nucleosynthesis.
+• Experimental nuclear astrophysics: Direct measurements of radiative-capture and (α, n) reactions relevant
+to the slow and rapid neutron capture process, the Carbon-Nitrogen-Oxygen (CNO) cycle in Sun, and stellar
+evolution.
+
+• High-energy-density plasma nuclear science: Development of plasma platforms and diagnostics for nuclear-
+reaction measurements at OMEGA, the Z machine, and the National Ignition Facility.
+
+• Detector development and neutron spectroscopy: Neutron, gamma-ray, charged-particle, and CR-39 based
+detection methods for accelerator-based cross-section measurements.
+• Reaction modeling and data analysis: R-matrix and Hauser-Feshbach analyses, MESA stellar-evolution code,
+Monte Carlo particle transport, and machine-learning methods for nuclear data analysis and neutron-spectrum
+unfolding.
+CORE EXPERTISE
+Neutron spectroscopy and unfolding (MLEM, Bayesian inference) • Gamma-ray and charged-particle detection
+(HECTOR, CR-39, scintillators) • Accelerator-based nuclear experiments (CASPAR, LEIA) • High-energy-density
+plasma diagnostics (OMEGA, NIF, Z) • Monte Carlo transport and nuclear data (MCNP/OpenMC, Geant4,
+ENDF).
+PUBLICATIONS
+Manuscripts submitted and in preparation
+1. Advancing the MIT Linear Electrostatic Ion Accelerator (LEIA) used for developing diagnostics for OMEGA, Z
+and NIF for fusion cross-section measurements
+Shahina, T. Evans, K. Bauer, B.I. Buschmann, M. Cufari, S. Dannhoff, A. DeVault, E. Edwards, B. Foo, N.
+Keer, Y. Lawrence, C. Shuldberg, N. Vanderloo, J. Vargas, C. Wink, J.A. Frenje, and M. Gatu Johnson.
+Submitted to Review of Scientific Instruments.
