@@ -1521,6 +1521,63 @@ body.high-contrast .inst-email {
     font-weight: 600;
 }
 
+.faculty-qualifications {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.65rem 0.75rem;
+    background: var(--bg-light, #f8fafc);
+    border-radius: var(--radius-sm, 6px);
+    border-left: 3px solid var(--primary-navy, #0f172a);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.qual-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-primary, #334155);
+    font-weight: 500;
+    font-size: 0.82rem;
+}
+
+.qual-item i {
+    width: 14px;
+    height: 14px;
+    color: var(--primary-navy, #0f172a);
+    flex-shrink: 0;
+}
+
+.qual-badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+}
+
+.qual-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    background-color: rgba(15, 23, 42, 0.07);
+    color: var(--primary-navy, #0f172a);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+body.high-contrast .faculty-qualifications {
+    background: #1e293b;
+    border-left-color: var(--accent-gold);
+}
+
+body.high-contrast .qual-badge {
+    background-color: rgba(255, 215, 0, 0.15);
+    color: var(--accent-gold);
+}
+
 .editorial-recruitment-box {
     margin-top: 4rem;
     background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-slate) 100%);
