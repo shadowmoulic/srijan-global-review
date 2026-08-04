@@ -27,7 +27,7 @@ class SrijanHeader extends HTMLElement {
                 <div class="container top-bar-content">
                     <div class="top-bar-left">
                         <span class="institutional-badge"><i data-lucide="shield-check"></i> Published by SRIJANTIRTHA Publisher</span>
-                        <span class="issn-tag"><i data-lucide="award"></i> ISSN (Online): Applied For</span>
+                        <span class="issn-tag"><i data-lucide="award"></i> ISSN: 3139-7123 (Online)</span>
                     </div>
                     <div class="top-bar-right">
                         <div class="accessibility-controls" aria-label="Accessibility tools">
@@ -168,6 +168,7 @@ class SrijanFooter extends HTMLElement {
                             <p><i data-lucide="building"></i> City Office: Flat No. B1, B2/236, Kalyani 741235, West Bengal, India</p>
                             <p><i data-lucide="phone"></i> +91 90623 85173 / +91 89105 54624</p>
                             <p><i data-lucide="mail"></i> srijan.globalreview@gmail.com</p>
+                            <p><i data-lucide="award"></i> <strong>ISSN: 3139-7123 (Online)</strong></p>
                             <p><i data-lucide="shield"></i> Reg No: IV-1901-00880/2025</p>
                         </div>
                     </div>

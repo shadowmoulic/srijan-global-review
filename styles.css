@@ -312,8 +312,13 @@ body.high-contrast .btn-outline {
 }
 
 .issn-tag {
-    color: var(--accent-gold);
-    font-weight: 600;
+    color: #ffe082;
+    font-weight: 700;
+    background: rgba(197, 160, 89, 0.2);
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 8px rgba(197, 160, 89, 0.25);
 }
 
 .top-bar-right {
@@ -698,9 +703,11 @@ body.high-contrast .dropdown-menu li a:hover {
 }
 
 .status-issn {
-    background-color: rgba(197, 160, 89, 0.15);
-    color: #927233;
-    border: 1px solid rgba(197, 160, 89, 0.4);
+    background-color: rgba(197, 160, 89, 0.22);
+    color: #8a6217;
+    border: 1px solid rgba(197, 160, 89, 0.6);
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
 }
 
 body.high-contrast .status-issn {
