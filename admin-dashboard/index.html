@@ -26,19 +26,6 @@
 
     <!-- Database & Auth Config -->
     <script src="../supabase-config.js"></script>
-
-    <!-- Immediate Client-Side Guard: Destroys DOM if unauthorized -->
-    <script>
-        (async function checkGuard() {
-            if (typeof SrijanAuth !== 'undefined') {
-                const isValid = await SrijanAuth.verifySession();
-                if (!isValid) {
-                    document.documentElement.innerHTML = '<body><div style="padding:2rem;text-align:center;font-family:sans-serif;">Redirecting to Admin Authentication Portal...</div></body>';
-                    window.location.replace('../admin/index.html');
-                }
-            }
-        })();
-    </script>
 </head>
 
 <body class="admin-body">
@@ -59,8 +46,8 @@
                     <span class="status-dot"></span>
                     <span class="status-text">Connecting Supabase...</span>
                 </div>
-                <a href="../index.html" class="btn btn-outline-admin" style="margin-right: 0.5rem;"><i data-lucide="external-link"></i> Live Site</a>
-                <button id="btn-sign-out" class="btn btn-outline-admin" style="background: rgba(229, 62, 62, 0.2); border-color: #feb2b2; color: #fff; font-weight: 600; cursor: pointer;">
+                <a href="../index.html" class="btn btn-outline-admin" style="margin-right: 0.25rem;"><i data-lucide="external-link"></i> Live Site</a>
+                <button id="btn-sign-out" class="btn btn-outline-admin" style="background: rgba(229, 62, 62, 0.25); border-color: #feb2b2; color: #fff; font-weight: 600; cursor: pointer;">
                     <i data-lucide="log-out"></i> Sign Out
                 </button>
             </div>
@@ -118,7 +105,7 @@
             <div class="pane-header">
                 <h2>Submitted Research Manuscripts</h2>
                 <div class="pane-actions">
-                    <input type="text" id="sub-search" placeholder="Search by author, title, ID..." class="admin-search-input">
+                    <input type="text" id="sub-search" placeholder="Search author, title, ID..." class="admin-search-input">
                     <select id="sub-filter-status" class="admin-select-filter">
                         <option value="all">All Statuses</option>
                         <option value="Screening">Screening</option>
@@ -144,7 +131,7 @@
                         </tr>
                     </thead>
                     <tbody id="sub-table-body">
-                        <!-- Populated dynamically via JS -->
+                        <!-- Dynamic content -->
                     </tbody>
                 </table>
             </div>
@@ -155,7 +142,7 @@
             <div class="pane-header">
                 <h2>Peer Reviewer Applications</h2>
                 <div class="pane-actions">
-                    <input type="text" id="rev-search" placeholder="Search by name, expertise, institution..." class="admin-search-input">
+                    <input type="text" id="rev-search" placeholder="Search name, expertise, institution..." class="admin-search-input">
                 </div>
             </div>
 
@@ -173,7 +160,7 @@
                         </tr>
                     </thead>
                     <tbody id="rev-table-body">
-                        <!-- Populated dynamically via JS -->
+                        <!-- Dynamic content -->
                     </tbody>
                 </table>
             </div>
@@ -198,7 +185,7 @@
                         </tr>
                     </thead>
                     <tbody id="contact-table-body">
-                        <!-- Populated dynamically via JS -->
+                        <!-- Dynamic content -->
                     </tbody>
                 </table>
             </div>

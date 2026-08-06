@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 1. Strict Auth Verification Guard
     const isAuthenticated = await SrijanAuth.verifySession();
     if (!isAuthenticated) {
-        document.body.innerHTML = '<div style="padding:3rem; text-align:center; font-size:1.2rem; font-family:sans-serif;">Redirecting to Admin Authentication Portal...</div>';
         window.location.replace('../admin/index.html');
         return;
     }
