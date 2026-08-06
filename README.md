@@ -3,7 +3,7 @@
 <div align="center">
   <img src="assets/logo.png" alt="SRIJAN: Global Review of Arts, Science & Humanities Logo" width="180"/>
   <h3>International Peer-Reviewed Open Access Journal</h3>
-  <p><b>ISSN: 3139-7123 (Online) • Published by SRIJANTIRTHA Publisher</b></p>
+  <p><b>ISSN: 3139-7123 (Online) • Published by SRIJANTIRTHA</b></p>
 </div>
 
 ---

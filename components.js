@@ -26,7 +26,7 @@ class SrijanHeader extends HTMLElement {
             <div class="top-bar" role="banner">
                 <div class="container top-bar-content">
                     <div class="top-bar-left">
-                        <span class="institutional-badge"><i data-lucide="shield-check"></i> Published by SRIJANTIRTHA Publisher</span>
+                        <span class="institutional-badge"><i data-lucide="shield-check"></i> Published by SRIJANTIRTHA</span>
                         <span class="issn-tag"><i data-lucide="award"></i> ISSN: 3139-7123 (Online)</span>
                     </div>
                     <div class="top-bar-right">
