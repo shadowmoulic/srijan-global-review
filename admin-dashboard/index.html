@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Admin Dashboard | SRIJAN: Global Review of Arts, Science & Humanities</title>
+    <link rel="icon" href="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" type="image/png">
+    <meta name="description" content="Protected Executive Board Administration Portal for SRIJAN: Global Review of Arts, Science & Humanities.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="../lucide.min.js"></script>
+
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../admin/admin.css">
+
+    <!-- Database & Auth Config -->
+    <script src="../supabase-config.js"></script>
+
+    <!-- Immediate Client-Side Guard: Destroys DOM if unauthorized -->
+    <script>
+        (async function checkGuard() {
+            if (typeof SrijanAuth !== 'undefined') {
+                const isValid = await SrijanAuth.verifySession();
+                if (!isValid) {
+                    document.documentElement.innerHTML = '<body><div style="padding:2rem;text-align:center;font-family:sans-serif;">Redirecting to Admin Authentication Portal...</div></body>';
+                    window.location.replace('../admin/index.html');
+                }
+            }
+        })();
+    </script>
+</head>
+
+<body class="admin-body">
+
+    <header class="admin-header">
+        <div class="admin-header-container">
+            <div class="admin-brand">
+                <a href="../index.html" class="back-link" title="Back to Journal Website">
+                    <i data-lucide="arrow-left"></i>
+                </a>
+                <div class="brand-titles">
+                    <h1>SRIJAN Executive Board Console</h1>
+                    <span class="subtitle">Editorial Screening & Assessment Portal</span>
+                </div>
+            </div>
+            <div class="admin-controls">
+                <div id="db-status-badge" class="db-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Connecting Supabase...</span>
+                </div>
+                <a href="../index.html" class="btn btn-outline-admin" style="margin-right: 0.5rem;"><i data-lucide="external-link"></i> Live Site</a>
+                <button id="btn-sign-out" class="btn btn-outline-admin" style="background: rgba(229, 62, 62, 0.2); border-color: #feb2b2; color: #fff; font-weight: 600; cursor: pointer;">
+                    <i data-lucide="log-out"></i> Sign Out
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <!-- Key Metrics Cards -->
+        <section class="admin-metrics">
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="file-text"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="total-sub-count">0</span>
+                    <span class="metric-label">Manuscript Submissions</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="clock"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="screening-count">0</span>
+                    <span class="metric-label">Pending Screening</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="users"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="reviewer-count">0</span>
+                    <span class="metric-label">Reviewer Applications</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="mail"></i></div>
+                <div class="metric-info">
+                    <span class="metric-num" id="unread-contacts">0</span>
+                    <span class="metric-label">Editorial Inquiries</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="submissions">
+                <i data-lucide="folder-kanban"></i> Manuscripts & Submissions
+            </button>
+            <button class="admin-tab-btn" data-tab="reviewers">
+                <i data-lucide="user-check"></i> Reviewer Applications
+            </button>
+            <button class="admin-tab-btn" data-tab="contacts">
+                <i data-lucide="message-square"></i> Editorial Inquiries
+            </button>
+        </div>
+
+        <!-- TAB 1: MANUSCRIPT SUBMISSIONS -->
+        <section id="pane-submissions" class="admin-pane active">
+            <div class="pane-header">
+                <h2>Submitted Research Manuscripts</h2>
+                <div class="pane-actions">
+                    <input type="text" id="sub-search" placeholder="Search by author, title, ID..." class="admin-search-input">
+                    <select id="sub-filter-status" class="admin-select-filter">
+                        <option value="all">All Statuses</option>
+                        <option value="Screening">Screening</option>
+                        <option value="Under Review">Under Review</option>
+                        <option value="Accepted">Accepted</option>
+                        <option value="Revision">Revision</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="admin-table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Submission ID</th>
+                            <th>Author & Institution</th>
+                            <th>Manuscript Title</th>
+                            <th>Domain / Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sub-table-body">
+                        <!-- Populated dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAB 2: REVIEWER APPLICATIONS -->
+        <section id="pane-reviewers" class="admin-pane">
+            <div class="pane-header">
+                <h2>Peer Reviewer Applications</h2>
+                <div class="pane-actions">
+                    <input type="text" id="rev-search" placeholder="Search by name, expertise, institution..." class="admin-search-input">
+                </div>
+            </div>
+
+            <div class="admin-table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Applicant ID</th>
+                            <th>Name & Institution</th>
+                            <th>Country</th>
+                            <th>Expertise & Domain</th>
+                            <th>Application Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rev-table-body">
+                        <!-- Populated dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAB 3: EDITORIAL INQUIRIES -->
+        <section id="pane-contacts" class="admin-pane">
+            <div class="pane-header">
+                <h2>Official Editorial Inquiries & Proposals</h2>
+            </div>
+
+            <div class="admin-table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Message ID</th>
+                            <th>Sender & Email</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contact-table-body">
+                        <!-- Populated dynamically via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

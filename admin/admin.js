@@ -1,36 +1,13 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-
-    // Gatephrase Security Check
-    const gateModal = document.getElementById('gatephrase-modal');
-    const gateForm = document.getElementById('gatephrase-form');
-    const gateInput = document.getElementById('gatephrase-input');
-    const gateError = document.getElementById('gate-error');
-
-    if (sessionStorage.getItem('srijan_exec_auth') === 'Srijan@2016') {
-        if (gateModal) gateModal.setAttribute('hidden', 'true');
-        document.body.style.overflow = 'auto';
+    // Verify session
+    const isAuthenticated = await SrijanAuth.verifySession();
+    if (!isAuthenticated) {
+        window.location.replace('../admin/index.html');
+        return;
     } else {
-        if (gateModal) gateModal.removeAttribute('hidden');
-        document.body.style.overflow = 'hidden';
+        window.location.replace('../admin-dashboard/index.html');
+        return;
     }
-
-    gateForm?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (gateInput?.value === 'Srijan@2016') {
-            sessionStorage.setItem('srijan_exec_auth', 'Srijan@2016');
-            if (gateModal) gateModal.setAttribute('hidden', 'true');
-            document.body.style.overflow = 'auto';
-            loadAllData();
-        } else {
-            if (gateError) gateError.style.display = 'block';
-            if (gateInput) {
-                gateInput.style.borderColor = '#e53e3e';
-                gateInput.value = '';
-                gateInput.focus();
-            }
-        }
-    });
 
     const dbBadge = document.getElementById('db-status-badge');
     const statusText = dbBadge?.querySelector('.status-text');

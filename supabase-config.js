@@ -215,3 +215,48 @@ class SrijanDB {
         safeStorage.setItem('srijan_contacts', JSON.stringify(updated));
     }
 }
+
+class SrijanAuth {
+    static async verifySession() {
+        if (supabaseClient) {
+            try {
+                const { data } = await supabaseClient.auth.getSession();
+                if (data && data.session) return true;
+            } catch (e) {
+                console.warn('Supabase session check error:', e);
+            }
+        }
+        return sessionStorage.getItem('srijan_admin_active') === 'true';
+    }
+
+    static async loginWithPassword(email, password) {
+        if (!supabaseClient) {
+            return { success: false, error: 'Database authentication client is offline.' };
+        }
+        try {
+            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            if (error) {
+                return { success: false, error: error.message };
+            }
+            if (data && data.session) {
+                sessionStorage.setItem('srijan_admin_active', 'true');
+                return { success: true, user: data.user };
+            }
+        } catch (err) {
+            return { success: false, error: err.message || 'Authentication error' };
+        }
+        return { success: false, error: 'Invalid authentication credentials' };
+    }
+
+    static async signOut() {
+        if (supabaseClient) {
+            try {
+                await supabaseClient.auth.signOut();
+            } catch (e) {}
+        }
+        sessionStorage.removeItem('srijan_admin_active');
+        sessionStorage.removeItem('srijan_exec_token');
+        sessionStorage.removeItem('srijan_exec_auth');
+    }
+}
+
