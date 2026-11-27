@@ -110,26 +110,36 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         tbody.innerHTML = list.map(sub => `
             <tr class="search-row">
-                <td><strong>${sub.id}</strong></td>
-                <td>${sub.date || '2026-05-15'}</td>
+                <td><strong>${SrijanDB.escapeHtml(sub.id)}</strong></td>
+                <td>${SrijanDB.escapeHtml(sub.date || '2026-05-15')}</td>
                 <td>
-                    <div style="font-weight: 600; color: var(--primary-navy);">${sub.author || 'Author'}</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted);">${sub.institution || ''} (${sub.email || ''})</div>
+                    <div style="font-weight: 600; color: var(--primary-navy);">${SrijanDB.escapeHtml(sub.author || 'Author')}</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">${SrijanDB.escapeHtml(sub.institution || '')} (${SrijanDB.escapeHtml(sub.email || '')})</div>
                 </td>
-                <td><strong style="color: var(--primary-navy);">${sub.title || 'Untitled'}</strong></td>
+                <td><strong style="color: var(--primary-navy);">${SrijanDB.escapeHtml(sub.title || 'Untitled')}</strong></td>
                 <td>
-                    <span style="font-weight:600;">${sub.domain || 'General'}</span><br>
-                    <span style="font-size:0.85rem; color:var(--accent-gold);">${sub.type || 'Research Article'}</span>
+                    <span style="font-weight:600;">${SrijanDB.escapeHtml(sub.domain || 'General')}</span><br>
+                    <span style="font-size:0.85rem; color:var(--accent-gold);">${SrijanDB.escapeHtml(sub.type || 'Research Article')}</span>
                 </td>
-                <td>${getStatusSelectHtml(sub.status || 'Screening', 'sub', sub.id)}</td>
+                <td>${getStatusSelectHtml(sub.status || 'Screening', 'sub', SrijanDB.escapeHtml(sub.id))}</td>
                 <td>
                     <div class="action-group">
-                        <button class="btn-action-sm view-btn" data-type="sub" data-id="${sub.id}"><i data-lucide="eye"></i> Details</button>
-                        <a href="javascript:void(0)" onclick="alert('Simulating download for manuscript file: ${sub.file || 'manuscript.docx'}');" class="btn-action-sm download" title="Download File"><i data-lucide="download"></i> File</a>
+                        <button class="btn-action-sm view-btn" data-type="sub" data-id="${SrijanDB.escapeHtml(sub.id)}"><i data-lucide="eye"></i> Details</button>
+                        ${sub.storage_path ? `<button type="button" class="btn-action-sm manuscript-download" data-id="${SrijanDB.escapeHtml(sub.id)}">Download file</button>` : '<span>File unavailable</span>'}
                     </div>
                 </td>
             </tr>
         `).join('');
+
+        tbody.querySelectorAll('.manuscript-download').forEach(button => {
+            button.addEventListener('click', async () => {
+                try {
+                    await SrijanDB.downloadManuscript(button.dataset.id);
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+        });
 
         if (typeof lucide !== 'undefined') lucide.createIcons({ root: tbody });
         attachRowListeners(tbody, list, 'sub');
@@ -209,7 +219,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 sel.className = `status-select ${cleanClass}`;
                 
-                if (type === 'sub') await SrijanDB.updateSubmissionStatus(id, newStatus);
+                if (type === 'sub') {
+                    const item = list.find(row => row.id === id);
+                    sel.disabled = true;
+                    try {
+                        const result = await SrijanDB.updateSubmissionStatus(id, newStatus);
+                        item.status = result.status;
+                        if (result.emailSent === false) alert('Status saved. The author email could not be sent.');
+                    } catch (error) {
+                        alert(error.message);
+                    } finally {
+                        sel.value = item.status || 'Screening';
+                        sel.className = `status-select ${sel.value.replace(/\s+/g, '')}`;
+                        sel.disabled = false;
+                    }
+                }
                 if (type === 'rev') await SrijanDB.updateReviewerStatus(id, newStatus);
                 if (type === 'msg') await SrijanDB.updateContactStatus(id, newStatus);
             });
@@ -227,21 +251,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (type === 'sub') {
                     html = `
                         <div class="details-box">
-                            <h4>Manuscript Details: ${item.id}</h4>
+                            <h4>Manuscript Details: ${SrijanDB.escapeHtml(item.id)}</h4>
                             <div class="details-meta">
-                                <div><strong style="color:var(--text-muted);">Author:</strong><br><span style="font-size:1.1rem; font-weight:600;">${item.author}</span></div>
-                                <div><strong style="color:var(--text-muted);">Email:</strong><br><span>${item.email}</span></div>
-                                <div style="grid-column: span 2;"><strong style="color:var(--text-muted);">Institution:</strong><br><span>${item.institution}</span></div>
-                                <div><strong style="color:var(--text-muted);">Domain:</strong><br><span>${item.domain}</span></div>
-                                <div><strong style="color:var(--text-muted);">Type:</strong><br><span style="color:var(--accent-gold); font-weight:600;">${item.type}</span></div>
+                                <div><strong style="color:var(--text-muted);">Author:</strong><br><span style="font-size:1.1rem; font-weight:600;">${SrijanDB.escapeHtml(item.author)}</span></div>
+                                <div><strong style="color:var(--text-muted);">Email:</strong><br><span>${SrijanDB.escapeHtml(item.email)}</span></div>
+                                <div style="grid-column: span 2;"><strong style="color:var(--text-muted);">Institution:</strong><br><span>${SrijanDB.escapeHtml(item.institution)}</span></div>
+                                <div><strong style="color:var(--text-muted);">Domain:</strong><br><span>${SrijanDB.escapeHtml(item.domain)}</span></div>
+                                <div><strong style="color:var(--text-muted);">Type:</strong><br><span style="color:var(--accent-gold); font-weight:600;">${SrijanDB.escapeHtml(item.type)}</span></div>
                             </div>
                             <h4 style="margin-top:1.5rem;">Manuscript Title</h4>
-                            <p style="font-size:1.25rem; font-weight:700; color:var(--primary-navy); margin-bottom:1.5rem;">${item.title}</p>
+                            <p style="font-size:1.25rem; font-weight:700; color:var(--primary-navy); margin-bottom:1.5rem;">${SrijanDB.escapeHtml(item.title)}</p>
                             <h4>Abstract</h4>
-                            <p style="background:var(--bg-light); padding:1.5rem; border-radius:var(--radius-sm); line-height:1.8; font-size:1.05rem;">${item.abstract || 'No abstract provided.'}</p>
+                            <p style="background:var(--bg-light); padding:1.5rem; border-radius:var(--radius-sm); line-height:1.8; font-size:1.05rem;">${SrijanDB.escapeHtml(item.abstract || 'No abstract provided.')}</p>
                             <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center;">
-                                <span style="font-weight:600;"><i data-lucide="file-check" style="color:var(--accent-gold); margin-right:0.5rem;"></i> Attached Document: ${item.file || 'manuscript.docx'}</span>
-                                <a href="javascript:void(0)" onclick="alert('Simulating download for manuscript file: ${item.file || 'manuscript.docx'}');" class="btn btn-primary" style="padding: 0.5rem 1rem;"><i data-lucide="download"></i> Download</a>
+                                <span style="font-weight:600;"><i data-lucide="file-check" style="color:var(--accent-gold); margin-right:0.5rem;"></i> Attached Document: ${SrijanDB.escapeHtml(item.file || 'manuscript.docx')}</span>
                             </div>
                         </div>
                     `;

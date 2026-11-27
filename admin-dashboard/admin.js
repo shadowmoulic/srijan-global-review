@@ -92,19 +92,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         tbody.innerHTML = list.map(sub => `
             <tr>
-                <td><strong>${sub.id}</strong></td>
+                <td><strong>${SrijanDB.escapeHtml(sub.id)}</strong></td>
                 <td>
-                    <div style="font-weight: 600; color: var(--primary-navy);">${sub.author || 'Author'}</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted);">${sub.institution || ''} (${sub.email || ''})</div>
+                    <div style="font-weight: 600; color: var(--primary-navy);">${SrijanDB.escapeHtml(sub.author || 'Author')}</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">${SrijanDB.escapeHtml(sub.institution || '')} (${SrijanDB.escapeHtml(sub.email || '')})</div>
                 </td>
-                <td><strong style="color: var(--primary-navy);">${sub.title || 'Untitled'}</strong></td>
+                <td><strong style="color: var(--primary-navy);">${SrijanDB.escapeHtml(sub.title || 'Untitled')}</strong></td>
                 <td>
-                    <span style="font-weight:600;">${sub.domain || 'General'}</span><br>
-                    <span style="font-size:0.85rem; color:var(--accent-gold);">${sub.type || 'Research Article'}</span>
+                    <span style="font-weight:600;">${SrijanDB.escapeHtml(sub.domain || 'General')}</span><br>
+                    <span style="font-size:0.85rem; color:var(--accent-gold);">${SrijanDB.escapeHtml(sub.type || 'Research Article')}</span>
                 </td>
-                <td>${sub.date || '2026-05-15'}</td>
+                <td>${SrijanDB.escapeHtml(sub.date || '2026-05-15')}</td>
                 <td>
-                    <select class="status-select ${getStatusBadgeClass(sub.status)}" data-id="${sub.id}" data-type="sub">
+                    <select class="status-select ${getStatusBadgeClass(sub.status)}" data-id="${SrijanDB.escapeHtml(sub.id)}" data-type="sub">
                         <option value="Screening" ${sub.status === 'Screening' ? 'selected' : ''}>Screening</option>
                         <option value="Under Review" ${sub.status === 'Under Review' ? 'selected' : ''}>Under Review</option>
                         <option value="Accepted" ${sub.status === 'Accepted' ? 'selected' : ''}>Accepted</option>
@@ -114,11 +114,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </td>
                 <td>
                     <div class="action-group">
-                        <button class="btn-action-sm view-sub-btn" data-id="${sub.id}"><i data-lucide="eye"></i> View Abstract</button>
+                        <button class="btn-action-sm view-sub-btn" data-id="${SrijanDB.escapeHtml(sub.id)}"><i data-lucide="eye"></i> View Abstract</button>
+                        ${sub.storage_path ? `<button type="button" class="btn-action-sm manuscript-download" data-id="${SrijanDB.escapeHtml(sub.id)}">Download file</button>` : '<span>File unavailable</span>'}
                     </div>
                 </td>
             </tr>
         `).join('');
+
+        tbody.querySelectorAll('.manuscript-download').forEach(button => {
+            button.addEventListener('click', async () => {
+                try {
+                    await SrijanDB.downloadManuscript(button.dataset.id);
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+        });
 
         if (typeof lucide !== 'undefined') lucide.createIcons({ root: tbody });
 
@@ -126,8 +137,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             sel.addEventListener('change', async (e) => {
                 const id = e.target.getAttribute('data-id');
                 const newStatus = e.target.value;
-                e.target.className = `status-select ${getStatusBadgeClass(newStatus)}`;
-                await SrijanDB.updateSubmissionStatus(id, newStatus);
+                const item = list.find(row => row.id === id);
+                sel.disabled = true;
+                try {
+                    const result = await SrijanDB.updateSubmissionStatus(id, newStatus);
+                    item.status = result.status;
+                    if (result.emailSent === false) alert('Status saved. The author email could not be sent.');
+                } catch (error) {
+                    alert(error.message);
+                } finally {
+                    sel.value = item.status || 'Screening';
+                    sel.className = `status-select ${getStatusBadgeClass(sel.value)}`;
+                    sel.disabled = false;
+                }
             });
         });
 

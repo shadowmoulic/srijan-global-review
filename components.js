@@ -264,10 +264,10 @@ class SrijanModals extends HTMLElement {
                             <div class="form-group file-upload-box">
                                 <label for="sub-file" class="upload-label">
                                     <i data-lucide="cloud-upload" class="upload-icon"></i>
-                                    <span class="upload-title">Click to upload manuscript file (.docx / .tex)</span>
+                                    <span class="upload-title">Click to upload manuscript file (PDF or DOCX)</span>
                                     <span class="upload-size">Maximum file size: 25MB</span>
                                 </label>
-                                <input type="file" id="sub-file" required accept=".doc,.docx,.tex,.pdf" class="sr-only">
+                                <input type="file" id="sub-file" required accept=".pdf,.docx" class="sr-only">
                                 <div id="selected-file-name" class="file-name-display"></div>
                             </div>
                             <div class="form-check">

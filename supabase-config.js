@@ -68,53 +68,42 @@ class SrijanDB {
     }
 
     /* --- SUBMISSIONS --- */
-    static async saveSubmission(data) {
-        const entry = {
-            id: `SRJ-2026-${Math.floor(1000 + Math.random() * 9000)}`,
-            date: new Date().toISOString().split('T')[0],
-            status: 'Screening',
-            ...data
-        };
-
-        if (this.isSupabaseActive()) {
-            try {
-                const { error } = await supabaseClient.from('srijan_submissions').insert([entry]);
-                if (error) console.warn('Supabase Insert Warning (Table might not exist yet):', error);
-            } catch (err) {
-                console.error('Supabase Exception:', err);
-            }
+    static async manuscriptRequest(body) {
+        if (!supabaseClient) throw new Error('The journal service is unavailable.');
+        const { data, error } = await supabaseClient.functions.invoke('srijan-manuscripts', { body });
+        if (error) {
+            const details = await error.context?.json?.().catch(() => null);
+            throw new Error(details?.error || 'The journal could not complete the request. Please try again.');
         }
+        return data;
+    }
 
-        // Always fallback / sync to LocalStorage
-        const existing = JSON.parse(safeStorage.getItem('srijan_submissions') || '[]');
-        existing.unshift(entry);
-        safeStorage.setItem('srijan_submissions', JSON.stringify(existing));
-        return entry;
+    static async saveSubmission(data) {
+        const form = new FormData();
+        for (const [name, value] of Object.entries(data)) form.set(name, value);
+        return this.manuscriptRequest(form);
     }
 
     static async getSubmissions() {
-        if (this.isSupabaseActive()) {
-            try {
-                const { data, error } = await supabaseClient.from('srijan_submissions').select('*').order('id', { ascending: false });
-                if (!error && data && data.length > 0) return data;
-            } catch (err) {
-                console.warn('Supabase Select Warning:', err);
-            }
-        }
-        return JSON.parse(safeStorage.getItem('srijan_submissions') || '[]');
+        if (!supabaseClient) throw new Error('The journal service is unavailable.');
+        const { data, error } = await supabaseClient.from('srijan_submissions').select('*').order('created_at', { ascending: false });
+        if (error) throw error;
+        return data;
     }
 
-    static async updateSubmissionStatus(id, newStatus) {
-        if (this.isSupabaseActive()) {
-            try {
-                await supabaseClient.from('srijan_submissions').update({ status: newStatus }).eq('id', id);
-            } catch (err) {
-                console.warn('Supabase Update Warning:', err);
-            }
-        }
-        const items = JSON.parse(safeStorage.getItem('srijan_submissions') || '[]');
-        const updated = items.map(item => item.id === id ? { ...item, status: newStatus } : item);
-        safeStorage.setItem('srijan_submissions', JSON.stringify(updated));
+    static async updateSubmissionStatus(id, status) {
+        return this.manuscriptRequest({ action: 'status', id, status });
+    }
+
+    static async downloadManuscript(id) {
+        const { url } = await this.manuscriptRequest({ action: 'download', id });
+        window.location.assign(url);
+    }
+
+    static escapeHtml(value) {
+        const element = document.createElement('span');
+        element.textContent = String(value ?? '');
+        return element.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
     /* --- REVIEWER APPLICATIONS --- */

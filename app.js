@@ -192,9 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = e.target.files[0];
             if (file) {
                 const fileSize = (file.size / (1024 * 1024)).toFixed(2);
-                selectedFileNameDisplay.innerHTML = `<i data-lucide="file-check"></i> Selected: ${file.name} (${fileSize} MB)`;
-                if (typeof lucide !== 'undefined') lucide.createIcons({ root: selectedFileNameDisplay });
-                showToast(`Attached file: ${file.name}`, 'success');
+                selectedFileNameDisplay.textContent = `Selected: ${file.name} (${fileSize} MB)`;
             } else {
                 selectedFileNameDisplay.innerHTML = '';
             }
@@ -234,15 +232,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const type = document.getElementById('sub-type')?.value || '';
             const abstract = document.getElementById('sub-abstract')?.value || '';
             const fileInput = document.getElementById('sub-file');
-            const file = fileInput && fileInput.files[0] ? fileInput.files[0].name : 'manuscript.docx';
-
-            const saved = await SrijanDB.saveSubmission({ author: fname, email, institution: affil, title, domain, type, abstract, file });
-
-            closeModal(submitModal);
-            paperSubmitForm.reset();
-            if (selectedFileNameDisplay) selectedFileNameDisplay.innerHTML = '';
-
-            showToast(`Manuscript "${title.substring(0, 35)}..." transmitted securely to Supabase. Tracking ID: ${saved.id}`, 'success', 8000);
+            const file = fileInput?.files[0];
+            if (!file || !/\.(pdf|docx)$/i.test(file.name) || !file.size || file.size > 25 * 1024 * 1024) {
+                showToast('Choose a PDF or DOCX manuscript up to 25 MB.', 'error');
+                return;
+            }
+            const button = paperSubmitForm.querySelector('[type="submit"]');
+            if (button.disabled) return;
+            button.disabled = true;
+            try {
+                const saved = await SrijanDB.saveSubmission({ author: fname, email, institution: affil, title, domain, type, abstract, file });
+                closeModal(submitModal);
+                paperSubmitForm.reset();
+                if (selectedFileNameDisplay) selectedFileNameDisplay.textContent = '';
+                const receipt = saved.emailSent ? ' A receipt was sent by email.' : ' The email receipt could not be sent. Keep this tracking ID.';
+                showToast(`Submission received. Tracking ID: ${saved.id}.${receipt}`, 'success', 16000);
+            } catch (error) {
+                showToast(SrijanDB.escapeHtml(error.message), 'error', 8000);
+            } finally {
+                button.disabled = false;
+            }
         });
     }
 
