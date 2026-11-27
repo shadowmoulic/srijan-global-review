@@ -60,9 +60,9 @@ class SrijanHeader extends HTMLElement {
                             <input type="text" id="global-search" placeholder="Search articles, DOIs..." aria-label="Search journal">
                             <button id="search-submit" class="btn-search-submit" aria-label="Submit search">Search</button>
                         </div>
-                        <button class="btn btn-primary submit-btn-banner" id="banner-submit-btn">
+                        <a class="btn btn-primary submit-btn-banner" id="banner-submit-btn" href="https://tally.so/r/8NxPkk">
                             <i data-lucide="send"></i> Submit Paper
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -200,89 +200,6 @@ class SrijanFooter extends HTMLElement {
 class SrijanModals extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <!-- MODAL: SUBMIT MANUSCRIPT -->
-            <div id="submit-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-                <div class="modal-overlay"></div>
-                <div class="modal-container">
-                    <div class="modal-header">
-                        <h3 id="modal-title"><i data-lucide="upload"></i> Online Manuscript Submission Portal</h3>
-                        <button class="modal-close" aria-label="Close modal"><i data-lucide="x"></i></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="submission-notice">
-                            <i data-lucide="info"></i>
-                            <span>Please ensure your manuscript is fully formatted according to our Author Guidelines and is anonymized for double-blind peer review.</span>
-                        </div>
-                        <form id="paper-submit-form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="sub-fname">Corresponding Author Name *</label>
-                                    <input type="text" id="sub-fname" required placeholder="Dr. / Prof. Full Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sub-email">Institutional Email *</label>
-                                    <input type="email" id="sub-email" required placeholder="author@institution.edu">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sub-affil">Primary Institution & Department *</label>
-                                <input type="text" id="sub-affil" required placeholder="e.g., Department of Philosophy, Delhi University">
-                            </div>
-                            <div class="form-group">
-                                <label for="sub-title">Manuscript Title *</label>
-                                <input type="text" id="sub-title" required placeholder="Enter full paper title">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="sub-domain">Research Domain *</label>
-                                    <select id="sub-domain" required>
-                                        <option value="">-- Select Domain --</option>
-                                        <option value="Literature">Literature</option>
-                                        <option value="Linguistics">Linguistics</option>
-                                        <option value="Philosophy">Philosophy</option>
-                                        <option value="Sociology">Sociology</option>
-                                        <option value="Psychology">Psychology</option>
-                                        <option value="Education">Education</option>
-                                        <option value="Theatre">Theatre & Performance</option>
-                                        <option value="Interdisciplinary">Interdisciplinary Research</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sub-type">Manuscript Type *</label>
-                                    <select id="sub-type" required>
-                                        <option value="">-- Select Type --</option>
-                                        <option value="Research">Original Research Article</option>
-                                        <option value="Review">Review Article</option>
-                                        <option value="Theoretical">Theoretical Perspective</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="sub-abstract">Abstract (Max 250 words) *</label>
-                                <textarea id="sub-abstract" rows="4" required placeholder="Paste manuscript abstract here..."></textarea>
-                            </div>
-                            <div class="form-group file-upload-box">
-                                <label for="sub-file" class="upload-label">
-                                    <i data-lucide="cloud-upload" class="upload-icon"></i>
-                                    <span class="upload-title">Click to upload manuscript file (PDF or DOCX)</span>
-                                    <span class="upload-size">Maximum file size: 25MB</span>
-                                </label>
-                                <input type="file" id="sub-file" required accept=".pdf,.docx" class="sr-only">
-                                <div id="selected-file-name" class="file-name-display"></div>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" id="sub-ethics" required>
-                                <label for="sub-ethics">I certify that this paper is my original work, has not been published elsewhere, and complies with the publication ethics of SRIJAN: Global Review of Arts, Science & Humanities.</label>
-                            </div>
-                            <div class="modal-footer-actions">
-                                <button type="button" class="btn btn-outline modal-cancel">Cancel</button>
-                                <button type="submit" class="btn btn-primary"><i data-lucide="check-circle"></i> Submit Manuscript</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
             <!-- MODAL: BECOME REVIEWER -->
             <div id="reviewer-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="reviewer-modal-title" hidden>
                 <div class="modal-overlay"></div>

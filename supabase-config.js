@@ -207,15 +207,15 @@ class SrijanDB {
 
 class SrijanAuth {
     static async verifySession() {
-        if (supabaseClient) {
-            try {
-                const { data } = await supabaseClient.auth.getSession();
-                if (data && data.session) return true;
-            } catch (e) {
-                console.warn('Supabase session check error:', e);
-            }
+        if (!supabaseClient) return false;
+        try {
+            const { data: { session } } = await supabaseClient.auth.getSession();
+            if (!session) return false;
+            const { data, error } = await supabaseClient.rpc('srijan_is_editor');
+            return !error && data === true;
+        } catch {
+            return false;
         }
-        return sessionStorage.getItem('srijan_admin_active') === 'true';
     }
 
     static async loginWithPassword(email, password) {
@@ -228,7 +228,10 @@ class SrijanAuth {
                 return { success: false, error: error.message };
             }
             if (data && data.session) {
-                sessionStorage.setItem('srijan_admin_active', 'true');
+                if (!await this.verifySession()) {
+                    await this.signOut();
+                    return { success: false, error: 'This account could not be verified as a journal editor.' };
+                }
                 return { success: true, user: data.user };
             }
         } catch (err) {

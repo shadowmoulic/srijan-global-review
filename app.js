@@ -128,13 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        MODAL DIALOGUES
        ========================================================================== */
-    const submitModal = document.getElementById('submit-modal');
     const reviewerModal = document.getElementById('reviewer-modal');
 
     // Modal Trigger Buttons
-    const bannerSubmitBtn = document.getElementById('banner-submit-btn');
-    const heroSubmitBtn = document.getElementById('hero-submit-btn');
-    const scopeSubmitBtn = document.getElementById('scope-submit-btn');
     const heroReviewerBtn = document.getElementById('hero-reviewer-btn');
     const joinBoardBtn = document.getElementById('join-board-btn');
     const footerJoinBtn = document.getElementById('footer-join-btn');
@@ -150,11 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.setAttribute('hidden', 'true');
         document.body.style.overflow = 'auto';
     }
-
-    // Bind Submit Modal Triggers
-    [bannerSubmitBtn, heroSubmitBtn, scopeSubmitBtn].forEach(btn => {
-        if (btn) btn.addEventListener('click', () => openModal(submitModal));
-    });
 
     // Bind Reviewer Modal Triggers
     [heroReviewerBtn, joinBoardBtn, footerJoinBtn].forEach(btn => {
@@ -175,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Escape Key for Modals
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            closeModal(submitModal);
             closeModal(reviewerModal);
         }
     });
@@ -184,21 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        FILE UPLOAD PREVIEWS
        ========================================================================== */
-    const subFileInput = document.getElementById('sub-file');
-    const selectedFileNameDisplay = document.getElementById('selected-file-name');
-
-    if (subFileInput && selectedFileNameDisplay) {
-        subFileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const fileSize = (file.size / (1024 * 1024)).toFixed(2);
-                selectedFileNameDisplay.textContent = `Selected: ${file.name} (${fileSize} MB)`;
-            } else {
-                selectedFileNameDisplay.innerHTML = '';
-            }
-        });
-    }
-
     const revCvInput = document.getElementById('rev-cv');
     const selectedCvNameDisplay = document.getElementById('selected-cv-name');
 
@@ -220,41 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        FORM SUBMISSION HANDLERS
        ========================================================================== */
-    const paperSubmitForm = document.getElementById('paper-submit-form');
-    if (paperSubmitForm) {
-        paperSubmitForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const fname = document.getElementById('sub-fname')?.value || '';
-            const email = document.getElementById('sub-email')?.value || '';
-            const affil = document.getElementById('sub-affil')?.value || '';
-            const title = document.getElementById('sub-title')?.value || '';
-            const domain = document.getElementById('sub-domain')?.value || '';
-            const type = document.getElementById('sub-type')?.value || '';
-            const abstract = document.getElementById('sub-abstract')?.value || '';
-            const fileInput = document.getElementById('sub-file');
-            const file = fileInput?.files[0];
-            if (!file || !/\.(pdf|docx)$/i.test(file.name) || !file.size || file.size > 25 * 1024 * 1024) {
-                showToast('Choose a PDF or DOCX manuscript up to 25 MB.', 'error');
-                return;
-            }
-            const button = paperSubmitForm.querySelector('[type="submit"]');
-            if (button.disabled) return;
-            button.disabled = true;
-            try {
-                const saved = await SrijanDB.saveSubmission({ author: fname, email, institution: affil, title, domain, type, abstract, file });
-                closeModal(submitModal);
-                paperSubmitForm.reset();
-                if (selectedFileNameDisplay) selectedFileNameDisplay.textContent = '';
-                const receipt = saved.emailSent ? ' A receipt was sent by email.' : ' The email receipt could not be sent. Keep this tracking ID.';
-                showToast(`Submission received. Tracking ID: ${saved.id}.${receipt}`, 'success', 16000);
-            } catch (error) {
-                showToast(SrijanDB.escapeHtml(error.message), 'error', 8000);
-            } finally {
-                button.disabled = false;
-            }
-        });
-    }
-
     const reviewerApplyForm = document.getElementById('reviewer-apply-form');
     if (reviewerApplyForm) {
         reviewerApplyForm.addEventListener('submit', async (e) => {

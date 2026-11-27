@@ -37,7 +37,7 @@
 
     <!-- Custom CSS & Web Components -->
     <link rel="stylesheet" href="styles.css?v=2026.1">
-    <script src="components.js?v=2026.1"></script>
+    <script src="components.js?v=tally-2026.11.27"></script>
 
     <!-- GEO & AEO Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -90,7 +90,7 @@
               "name": "How can authors submit their research manuscripts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Authors can submit their anonymized manuscript files (.docx, .tex, or .pdf) online through the SRIJAN Online Manuscript Submission Portal available directly on the official website."
+                "text": "Authors can submit their anonymized manuscript files (.docx or .pdf) online through the SRIJAN Online Manuscript Submission Portal available directly on the official website."
               }
             }
           ]
@@ -124,9 +124,9 @@
                         humanistic and scientific frontiers.</p>
 
                     <div class="hero-actions">
-                        <button class="btn btn-primary btn-lg action-submit" id="hero-submit-btn">
+                        <a class="btn btn-primary btn-lg action-submit" id="hero-submit-btn" href="https://tally.so/r/8NxPkk">
                             <i data-lucide="file-text"></i> Submit Paper Online
-                        </button>
+                        </a>
                         <a href="#current-issue" class="btn btn-outline btn-lg action-issue">
                             <i data-lucide="book-open"></i> View Current Issue
                         </a>
@@ -385,8 +385,8 @@
                                 </li>
                                 <li>
                                     <i data-lucide="check"></i>
-                                    <div><strong>File Format:</strong> Editable Microsoft Word (.doc / .docx) or LaTeX
-                                        (.tex) format.</div>
+                                    <div><strong>File Format:</strong> Microsoft Word (.docx) or PDF (.pdf).
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -514,8 +514,8 @@
 
     <!-- Database & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="app.js"></script>
+    <script src="supabase-config.js?v=2026.11.27"></script>
+    <script src="app.js?v=tally-2026.11.27"></script>
 </body>
 
 </html>

@@ -76,3 +76,11 @@ SRIJAN: Global Review of Arts, Science & Humanities strictly adheres to the ethi
   <p>&copy; 2026 <b>SRIJANTIRTHA</b>. All rights reserved. Registered under Reg No: IV-1901-00880/2025.</p>
   <p>📍 <i>Headquarters: Betai, Nadia 741163, West Bengal, India</i></p>
 </div>
+
+### Manuscript submissions
+
+The journal's public submission links open the [Tally manuscript form](https://tally.so/r/8NxPkk). Editors can find new drafts in the form's Submissions tab.
+
+Enable Respondent email notifications in Tally and map the To field to the required author email field. This option requires Tally Pro. Self email notifications can separately alert the form owner.
+
+To publish the journal links, upload the changed public HTML, components.js, and app.js to the existing site. Tally handles manuscript uploads and receipts independently of the journal's Supabase project.
