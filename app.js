@@ -307,18 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.querySelectorAll('.template-download-toast').forEach(btn => {
-        btn.addEventListener('click', () => {
-            showToast('Downloading Official SRIJAN Manuscript Template (.docx)...', 'success');
-            const link = document.createElement('a');
-            link.href = 'SRIJAN_Manuscript_Template_2026.docx';
-            link.download = 'SRIJAN_Manuscript_Template_2026.docx';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-    });
-
     document.querySelectorAll('.legal-modal-toast').forEach(btn => {
         btn.addEventListener('click', (e) => {
             showToast(`Showing Institutional Policy: ${e.target.innerText}. Compliant with international open access standards.`, 'info');

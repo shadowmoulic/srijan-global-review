@@ -167,7 +167,7 @@ class SrijanFooter extends HTMLElement {
                             <p><i data-lucide="map-pin"></i> Main Office: Betai, Nadia 741163, West Bengal, India</p>
                             <p><i data-lucide="building"></i> City Office: Flat No. B1, B2/236, Kalyani 741235, West Bengal, India</p>
                             <p><i data-lucide="phone"></i> +91 90623 85173 / +91 89105 54624</p>
-                            <p><i data-lucide="mail"></i> srijan.globalreview@gmail.com</p>
+                            <p><i data-lucide="mail"></i> <a href="mailto:contact@srijantirtha.in">contact@srijantirtha.in</a></p>
                             <p><i data-lucide="award"></i> <strong>ISSN: 3139-7123 (Online)</strong></p>
                             <p><i data-lucide="shield"></i> Reg No: IV-1901-00880/2025</p>
                         </div>
