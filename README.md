@@ -84,3 +84,9 @@ The journal's public submission links open the [Tally manuscript form](https://t
 Enable Respondent email notifications in Tally and map the To field to the required author email field. This option requires Tally Pro. Self email notifications can separately alert the form owner.
 
 To publish the journal links, upload the changed public HTML, components.js, and app.js to the existing site. Tally handles manuscript uploads and receipts independently of the journal's Supabase project.
+
+For the Supabase mirror, connect a Tally webhook on form 8NxPkk to https://qbgubcicjqkgowxgrmmp.supabase.co/functions/v1/srijan-tally. Set its signing secret to the same value as TALLY_SIGNING_SECRET in Supabase Edge Function Secrets. RESEND_API_KEY and STUDIO_NOTIFICATION_FROM configure the automated author receipt. When using Resend for the receipt, leave Tally's own respondent receipt disabled to avoid duplicate emails.
+
+The webhook copies PDF, DOCX, or TEX files up to 25 MB to the private srijan-manuscripts bucket and writes a row in srijan_submissions. Configure the Tally upload field to match those formats and limits. Tally retries failed deliveries. The Tally submission ID deduplicates the Supabase record, and the receipt is recorded after Resend accepts it.
+
+The srijan-manuscripts function handles editor downloads and status emails. Register each intended journal editor by adding their Supabase Auth user UUID to public.srijan_editors. Use the admin dashboard version that invokes the function when changing status.

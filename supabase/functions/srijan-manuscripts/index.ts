@@ -129,8 +129,13 @@ Deno.serve(async (request) => {
   if (request.method === "OPTIONS") return new Response(null, { headers });
   if (request.method !== "POST") return json({ error: "Method not allowed." }, 405);
   try {
-    return request.headers.get("content-type")?.startsWith("multipart/form-data")
-      ? await submit(request) : await edit(request);
+    if (request.headers.get("content-type")?.startsWith("multipart/form-data")) {
+      if (Deno.env.get("SRIJAN_DIRECT_UPLOAD_ENABLED") !== "true") {
+        return json({ error: "Use the journal's Tally form to submit a manuscript." }, 403);
+      }
+      return await submit(request);
+    }
+    return await edit(request);
   } catch (error) {
     console.error("Manuscript request failed", error instanceof Error ? error.message : "");
     return json({ error: "The journal could not complete the request. Please try again." }, 500);
