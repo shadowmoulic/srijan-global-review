@@ -102,7 +102,84 @@
 
 <body class="academic-theme">
 
-    <srijan-header base-path="./" active-page="home"></srijan-header>
+    <!-- Top Accessibility & Institutional Bar -->
+    <div class="top-bar" role="banner">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <span class="institutional-badge"><i data-lucide="shield-check"></i> Published by SRIJANTIRTHA</span>
+                <span class="issn-tag"><i data-lucide="award"></i> ISSN: 3139-7123 (Online)</span>
+            </div>
+            <div class="top-bar-right">
+                <div class="accessibility-controls" aria-label="Accessibility tools">
+                    <span class="ctrl-label"><i data-lucide="eye"></i> Accessibility:</span>
+                    <button class="font-btn" id="font-decrease" title="Decrease font size" aria-label="Decrease font size">A-</button>
+                    <button class="font-btn active" id="font-default" title="Default font size" aria-label="Default font size">A</button>
+                    <button class="font-btn" id="font-increase" title="Increase font size" aria-label="Increase font size">A+</button>
+                    <button class="contrast-btn" id="contrast-toggle" title="Toggle High Contrast" aria-label="Toggle High Contrast"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Banner Section -->
+    <div class="journal-banner">
+        <div class="container banner-container">
+            <a href="./" class="banner-brand">
+                <img src="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" alt="SRIJAN: Global Review of Arts, Science & Humanities Logo" class="banner-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
+                <div class="banner-titles">
+                    <div class="banner-title-wrapper">
+                        <h1 class="banner-title">SRIJAN</h1>
+                        <span class="banner-subtitle">Global Review of Arts, Science & Humanities</span>
+                    </div>
+                    <span class="banner-tagline">International Peer-Reviewed Open Access Journal</span>
+                </div>
+            </a>
+            <div class="banner-actions">
+                <div class="banner-search">
+                    <i data-lucide="search" class="search-icon-left"></i>
+                    <input type="text" id="global-search" placeholder="Search articles, DOIs..." aria-label="Search journal">
+                    <button id="search-submit" class="btn-search-submit" aria-label="Submit search">Search</button>
+                </div>
+                <a class="btn btn-primary submit-btn-banner" id="banner-submit-btn" href="https://tally.so/r/8NxPkk">
+                    <i data-lucide="send"></i> Submit Paper
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Main Navigation Bar -->
+    <header class="main-header" id="sticky-header">
+        <div class="container nav-container">
+            <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" id="menu-toggle-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg> <span class="menu-label">Menu</span>
+                </button>
+                <ul class="nav-list" id="nav-menu">
+                    <li><a href="./" class="nav-link active">Home</a></li>
+                    <li><a href="./about-us/" class="nav-link">About Us</a></li>
+                    <li><a href="./aim-scope/" class="nav-link">Aim & Scope</a></li>
+                    <li class="dropdown">
+                        <a href="./editorial-board/" class="nav-link dropdown-toggle">Editorial Board <i data-lucide="chevron-down" class="nav-chevron"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./editorial-board/#editorial">Executive Board</a></li>
+                            <li><a href="./editorial-board/#international-advisory">International Advisory</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./volume-1-issue-1-2026/" class="nav-link">Current Issue</a></li>
+                    <li><a href="#archives" class="nav-link">Archives</a></li>
+                    <li class="dropdown">
+                        <a href="./author-guidelines/" class="nav-link dropdown-toggle">For Authors <i data-lucide="chevron-down" class="nav-chevron"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./author-guidelines/">Author Guidelines</a></li>
+                            <li><a href="./peer-review-policy/">Peer Review Policy</a></li>
+                            <li><a href="./publication-ethics/">Publication Ethics</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./contact-us/" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Main Content Container -->
     <main role="main">
@@ -504,7 +581,70 @@
     </main>
 
     <!-- 7. FOOTER -->
-    <srijan-footer base-path="./"></srijan-footer>
+    <footer class="main-footer" role="contentinfo">
+        <div class="footer-top">
+            <div class="container footer-grid">
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
+                        <img src="https://srijantirtha.in/wp-content/uploads/2025/10/Srijantirtha-1.png" alt="SRIJAN: Global Review of Arts, Science & Humanities Logo" class="footer-journal-logo" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80'">
+                        <h2 style="font-size:1.2rem;">SRIJAN: Global Review of Arts, Science & Humanities</h2>
+                    </div>
+                    <p class="footer-desc">An international peer-reviewed academic journal published bi-annually under the auspices of SRIJANTIRTHA.</p>
+                    <div class="oa-badge-footer">
+                        <i data-lucide="unlock"></i>
+                        <span>Fully Open Access • Zero Submission Charges</span>
+                    </div>
+                </div>
+
+                <div class="footer-col nav-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="./"><i data-lucide="chevron-right"></i> Home</a></li>
+                        <li><a href="./about-us/"><i data-lucide="chevron-right"></i> About Journal</a></li>
+                        <li><a href="./editorial-board/"><i data-lucide="chevron-right"></i> Editorial Board</a></li>
+                        <li><a href="./volume-1-issue-1-2026/"><i data-lucide="chevron-right"></i> Current Issue</a></li>
+                        <li><a href="#archives"><i data-lucide="chevron-right"></i> Archives</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col nav-col">
+                    <h3>Editorial Policies</h3>
+                    <ul>
+                        <li><a href="./author-guidelines/"><i data-lucide="chevron-right"></i> Author Guidelines</a></li>
+                        <li><a href="./peer-review-policy/"><i data-lucide="chevron-right"></i> Peer Review Policy</a></li>
+                        <li><a href="./publication-ethics/"><i data-lucide="chevron-right"></i> Publication Ethics</a></li>
+                        <li><a href="javascript:void(0)" id="footer-join-btn"><i data-lucide="chevron-right"></i> Join as Reviewer</a></li>
+                        <li><a href="#indexing"><i data-lucide="chevron-right"></i> Indexing Status</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col text-sm">
+                    <h3>Official Headquarters</h3>
+                    <p><i data-lucide="map-pin"></i> Main Office: Betai, Nadia 741163, West Bengal, India</p>
+                    <p><i data-lucide="building"></i> City Office: Flat No. B1, B2/236, Kalyani 741235, West Bengal, India</p>
+                    <p><i data-lucide="phone"></i> +91 90623 85173 / +91 89105 54624</p>
+                    <p><i data-lucide="mail"></i> <a href="mailto:contact@srijantirtha.in">contact@srijantirtha.in</a></p>
+                    <p><i data-lucide="award"></i> <strong>ISSN: 3139-7123 (Online)</strong></p>
+                    <p><i data-lucide="shield"></i> Reg No: IV-1901-00880/2025</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2026 SRIJANTIRTHA. All rights reserved. Articles published under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="license-link">Creative Commons Attribution 4.0 International (CC BY 4.0) License</a>.</p>
+                </div>
+                <div class="footer-legal-links">
+                    <a href="./privacy-policy/">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="./terms-of-submission/">Terms of Submission</a>
+                    <span>•</span>
+                    <a href="./disclaimer/">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
     <srijan-modals></srijan-modals>
 
     <!-- Database & JavaScript -->
