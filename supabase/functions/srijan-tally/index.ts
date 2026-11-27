@@ -19,6 +19,7 @@ type Field = { key: string; label: string; type: string; value: unknown; options
 const contentTypes: Record<string, string> = {
   pdf: "application/pdf",
   docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  doc: "application/msword",
   tex: "application/x-tex",
 };
 
@@ -43,12 +44,18 @@ function choice(field?: Field) {
 }
 
 async function copyDraft(id: string, draft: { name: string; url: string; size?: number }) {
-  const extension = draft.name?.split(".").pop()?.toLowerCase() ?? "";
+  const extension = /\.([a-z0-9]{1,10})$/i.exec(draft.name.trim())?.[1].toLowerCase() ?? "";
   if (!Object.hasOwn(contentTypes, extension) || Number(draft.size) > maxBytes) {
-    throw new Error("Unsupported manuscript format or size");
+    console.warn("Tally draft remains in Tally", {
+      reason: !Object.hasOwn(contentTypes, extension) ? "unsupported extension" : "size limit",
+      extension, size: Number(draft.size) || null,
+    });
+    return null;
   }
   const url = new URL(draft.url);
-  if (url.origin !== "https://storage.tally.so" || url.username || url.password) {
+  const tallyAsset = url.origin === "https://storage.tally.so" ||
+    (url.origin === "https://storage.googleapis.com" && /^\/tally-response-assets(?:-[a-z]+)?\//.test(url.pathname));
+  if (!tallyAsset || url.username || url.password) {
     throw new Error("Unexpected draft URL");
   }
   const response = await fetch(url, { redirect: "error", signal: AbortSignal.timeout(25000) });
@@ -116,21 +123,23 @@ Deno.serve(async (request) => {
 
     const id = "SRJ-TALLY-" + data.submissionId;
     const findRow = () => db.from("srijan_submissions")
-      .select("id,title,email,tally_receipt_at").eq("tally_submission_id", data.submissionId).maybeSingle();
+      .select("id,title,email,tally_receipt_at,storage_path").eq("tally_submission_id", data.submissionId).maybeSingle();
     let { data: row, error } = await findRow();
     if (error) throw new Error("Submission lookup failed: " + error.code);
+    const fields: Field[] = data.fields;
+    const upload = match(fields, inputIds.file, "FILE_UPLOAD", /manuscript|upload/i)?.value;
+    if (!Array.isArray(upload) || upload.length !== 1 ||
+        typeof upload[0]?.name !== "string" || typeof upload[0]?.url !== "string") {
+      return new Response(null, { status: 422 });
+    }
+    const draft = upload[0];
     if (!row) {
-      const fields: Field[] = data.fields;
       const author = text(match(fields, inputIds.author, "INPUT_TEXT", /corresponding author name/i));
       const email = text(match(fields, inputIds.email, "INPUT_EMAIL", /institutional email/i));
       const title = text(match(fields, inputIds.title, "INPUT_TEXT", /manuscript title/i));
-      const upload = match(fields, inputIds.file, "FILE_UPLOAD", /manuscript|upload/i)?.value;
-      if (!author || !title || !/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(email) ||
-        !Array.isArray(upload) || upload.length !== 1 || !upload[0]?.name || !upload[0]?.url) {
+      if (!author || !title || !/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(email)) {
         return new Response(null, { status: 422 });
       }
-      const draft = upload[0];
-      const storage_path = await copyDraft(data.submissionId, draft);
       const timestamp = new Date(data.createdAt);
       const date = Number.isNaN(timestamp.getTime()) ? new Date().toISOString() : timestamp.toISOString();
       const { error: insertError } = await db.from("srijan_submissions").upsert({
@@ -139,15 +148,23 @@ Deno.serve(async (request) => {
         domain: choice(match(fields, inputIds.domain, "DROPDOWN", /subject|discipline|domain/i)),
         type: choice(match(fields, inputIds.type, "DROPDOWN", /type|category/i)),
         abstract: text(match(fields, inputIds.abstract, "TEXTAREA", /abstract/i)),
-        file: draft.name, storage_path, date: date.slice(0, 10), created_at: date,
+        file: draft.name, date: date.slice(0, 10), created_at: date,
         status: "Screening", tally_submission_id: data.submissionId,
       }, { onConflict: "tally_submission_id", ignoreDuplicates: true });
       if (insertError) throw new Error("Submission insert failed: " + insertError.code);
       ({ data: row, error } = await findRow());
       if (error || !row) throw new Error("Could not confirm saved submission");
     }
+    let storagePath = row.storage_path;
+    if (!storagePath) {
+      storagePath = await copyDraft(data.submissionId, draft);
+      if (storagePath) {
+        const { error } = await db.from("srijan_submissions").update({ storage_path: storagePath }).eq("id", id);
+        if (error) throw new Error("Could not record the stored draft");
+      }
+    }
     if (!row.tally_receipt_at) await receipt(row);
-    return Response.json({ id });
+    return Response.json({ id, fileSynced: Boolean(storagePath) });
   } catch (error) {
     console.error("Tally sync failed", error instanceof Error ? error.message : "Unexpected error");
     return new Response(null, { status: 503 });
